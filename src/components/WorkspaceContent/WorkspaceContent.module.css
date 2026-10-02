@@ -1,0 +1,7 @@
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Масштабируем от левого верхнего угла — так проще считать координаты */
+  transform-origin: 0 0;
+}
