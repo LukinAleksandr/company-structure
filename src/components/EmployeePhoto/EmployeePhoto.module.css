@@ -1,0 +1,9 @@
+.photo {
+  display: block;
+  width: 345px;
+  height: 345px;
+  border: 3px solid #595959;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  object-fit: cover;
+}

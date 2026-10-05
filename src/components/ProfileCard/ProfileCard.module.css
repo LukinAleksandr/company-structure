@@ -1,0 +1,48 @@
+.card {
+  --photo-left: 106px;
+  --photo-size: 345px;
+  --photo-to-text-gap: 48px;
+
+  position: relative;
+  width: 1027px;
+  height: 328px;
+  padding-top: 74.5px;
+  padding-left: calc(var(--photo-left) + var(--photo-size) + var(--photo-to-text-gap));
+  border-radius: 57px;
+  background-color: #ebebeb;
+  font-family: var(--font-sf-pro);
+}
+
+/* Фото выше карточки и специально вылезает за её верхний край */
+.photo {
+  position: absolute;
+  left: var(--photo-left);
+  bottom: 28px;
+}
+
+.position {
+  color: #4c4c4cb5;
+  font-size: 32px;
+  font-weight: 510;
+  line-height: 1;
+}
+
+.lastAndFirstName {
+  color: #323232;
+  font-size: 62px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.patronymic {
+  color: #6f6f6f8a;
+  font-size: 62px;
+  font-weight: 590;
+  line-height: 1;
+}
+
+.status {
+  position: absolute;
+  top: 36px;
+  right: 57px;
+}

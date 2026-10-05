@@ -29,7 +29,7 @@ export const mockCompanyStructure: Department = {
       lastName: "Коваль",
       firstName: "Олена",
       patronymic: "Петрівна",
-      photoUrl: null,
+      photoUrl: `${import.meta.env.BASE_URL}profile.png`,
       position: "Засновниця",
       departmentName: "Засновники",
       city: "Київ",
