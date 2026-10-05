@@ -1,0 +1,13 @@
+.connectors {
+  align-self: stretch;
+  width: 100%;
+  overflow: visible;
+}
+
+.line {
+  fill: none;
+  stroke: #7b7b7b;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

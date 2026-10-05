@@ -1,12 +1,15 @@
-import { DepartmentCard } from "./components/DepartmentCard/DepartmentCard";
+import { CanvasItem } from "./components/CanvasItem/CanvasItem";
+import { OrgChart } from "./components/OrgChart/OrgChart";
 import { Workspace } from "./components/Workspace/Workspace";
-import { ROOT_DEPARTMENT_POSITION } from "./constants/layout";
+import { ORG_CHART_POSITION } from "./constants/layout";
 import { mockCompanyStructure } from "./data/mockCompanyStructure";
 
 function App() {
   return (
     <Workspace>
-      <DepartmentCard department={mockCompanyStructure} position={ROOT_DEPARTMENT_POSITION} />
+      <CanvasItem position={ORG_CHART_POSITION}>
+        <OrgChart rootDepartment={mockCompanyStructure} />
+      </CanvasItem>
     </Workspace>
   );
 }
