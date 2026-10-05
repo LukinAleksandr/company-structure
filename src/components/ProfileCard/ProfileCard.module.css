@@ -21,13 +21,20 @@
 }
 
 .position {
+  margin: 0;
   color: #4c4c4cb5;
   font-size: 32px;
   font-weight: 510;
   line-height: 1;
 }
 
+.name {
+  margin: 0;
+  font: inherit;
+}
+
 .lastAndFirstName {
+  display: block;
   color: #323232;
   font-size: 62px;
   font-weight: 700;
@@ -35,6 +42,7 @@
 }
 
 .patronymic {
+  display: block;
   color: #6f6f6f8a;
   font-size: 62px;
   font-weight: 590;

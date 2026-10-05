@@ -11,10 +11,10 @@ export function DepartmentCard({ department }: DepartmentCardProps) {
   const head = getDepartmentHead(department);
 
   return (
-    <div className={styles.card}>
-      <div className={styles.name}>{department.name}</div>
-      <div className={styles.headPosition}>{head.position}</div>
-      <div className={styles.headName}>{getEmployeeFullName(head)}</div>
-    </div>
+    <article className={styles.card}>
+      <h2 className={styles.name}>{department.name}</h2>
+      <p className={styles.headPosition}>{head.position}</p>
+      <p className={styles.headName}>{getEmployeeFullName(head)}</p>
+    </article>
   );
 }

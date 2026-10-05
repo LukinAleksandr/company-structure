@@ -7,7 +7,7 @@ type EmployeePhotoProps = {
 
 export function EmployeePhoto({ photoUrl, alt }: EmployeePhotoProps) {
   if (!photoUrl) {
-    return <div className={styles.photo} />;
+    return <div className={styles.photo} role="img" aria-label={alt} />;
   }
 
   return <img className={styles.photo} src={photoUrl} alt={alt} />;

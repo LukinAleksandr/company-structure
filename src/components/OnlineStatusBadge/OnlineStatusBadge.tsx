@@ -7,8 +7,8 @@ type OnlineStatusBadgeProps = {
 
 export function OnlineStatusBadge({ isOnline }: OnlineStatusBadgeProps) {
   return (
-    <div className={joinClassNames(styles.badge, isOnline ? styles.online : styles.offline)}>
+    <span className={joinClassNames(styles.badge, isOnline ? styles.online : styles.offline)}>
       {isOnline ? "Онлайн" : "Офлайн"}
-    </div>
+    </span>
   );
 }

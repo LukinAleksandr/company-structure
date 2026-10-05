@@ -10,20 +10,22 @@ type ProfileCardProps = {
 
 export function ProfileCard({ employee }: ProfileCardProps) {
   return (
-    <div className={styles.card}>
+    <article className={styles.card}>
       <div className={styles.photo}>
         <EmployeePhoto photoUrl={employee.photoUrl} alt={getEmployeeFullName(employee)} />
       </div>
 
-      <div className={styles.position}>{employee.position}</div>
-      <div className={styles.lastAndFirstName}>
-        {employee.lastName} {employee.firstName}
-      </div>
-      <div className={styles.patronymic}>{employee.patronymic}</div>
+      <p className={styles.position}>{employee.position}</p>
+      <h2 className={styles.name}>
+        <span className={styles.lastAndFirstName}>
+          {employee.lastName} {employee.firstName}
+        </span>
+        <span className={styles.patronymic}>{employee.patronymic}</span>
+      </h2>
 
       <div className={styles.status}>
         <OnlineStatusBadge isOnline={employee.isOnline} />
       </div>
-    </div>
+    </article>
   );
 }
