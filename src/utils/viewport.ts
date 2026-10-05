@@ -1,4 +1,4 @@
-import { MAX_SCALE, MIN_SCALE } from "../constants/viewport";
+import { MAX_SCALE, MIN_SCALE, START_VIEW_SIDE_MARGIN, START_VIEW_TOP_MARGIN } from "../constants/viewport";
 import type { Point } from "../types/geometry";
 import type { Viewport } from "../types/viewport";
 
@@ -29,5 +29,25 @@ export function zoomViewportAtPoint(viewport: Viewport, zoomFactor: number, scre
     scale: newScale,
     offsetX: screenPoint.x - canvasX * newScale,
     offsetY: screenPoint.y - canvasY * newScale,
+  };
+}
+
+// Масштаб, при котором элемент помещается по ширине экрана. Крупнее 100% не увеличиваем
+export function getScaleToFitWidth(workspaceWidth: number, elementWidth: number): number {
+  const availableWidth = workspaceWidth - START_VIEW_SIDE_MARGIN * 2;
+  return clampScale(Math.min(1, availableWidth / elementWidth));
+}
+
+// Вид, при котором элемент стоит по центру по горизонтали и у верхнего края экрана
+export function getViewportShowingAtTopCenter(
+  workspaceWidth: number,
+  elementCenterX: number,
+  elementTop: number,
+  scale: number,
+): Viewport {
+  return {
+    scale,
+    offsetX: workspaceWidth / 2 - elementCenterX * scale,
+    offsetY: START_VIEW_TOP_MARGIN - elementTop * scale,
   };
 }
