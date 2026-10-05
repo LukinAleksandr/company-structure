@@ -1,7 +1,4 @@
 .badge {
-  padding: 8px 24px;
-  border-radius: 100px;
-  color: #ffffff;
   font-family: "Mont", var(--font-sf-pro);
   font-size: 20px;
   font-weight: 700;
@@ -9,9 +6,9 @@
 }
 
 .online {
-  background-color: #8bb831;
+  color: #8bb831;
 }
 
 .offline {
-  background-color: #a6a6a6;
+  color: #a6a6a6;
 }
