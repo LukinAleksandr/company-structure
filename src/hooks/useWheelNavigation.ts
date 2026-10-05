@@ -1,6 +1,7 @@
 import { type RefObject, useEffect } from "react";
 import { WHEEL_ZOOM_SENSITIVITY } from "../constants/viewport";
 import { getPointInsideElement } from "../utils/getPointInsideElement";
+import { getWheelDeltaInPixels } from "../utils/getWheelDeltaInPixels";
 import type { MoveBy, ZoomAtPoint } from "./useViewport";
 
 type WheelNavigationActions = {
@@ -9,9 +10,9 @@ type WheelNavigationActions = {
 };
 
 /**
- * Навигация колесом мыши / тачпадом, как в Figma:
- *  - колесо или два пальца — прокрутка рабочей области
- *  - Ctrl/Cmd + колесо или pinch на тачпаде — зум к курсору
+ * Навигация колесом мыши:
+ *  - колесо — зум к курсору
+ *  - Ctrl/Cmd + колесо — прокрутка рабочей области
  */
 export function useWheelNavigation(
   workspaceRef: RefObject<HTMLElement | null>,
@@ -26,15 +27,15 @@ export function useWheelNavigation(
       // Отключаем стандартный зум/скролл страницы браузером
       event.preventDefault();
 
-      // Pinch на тачпаде браузер присылает как wheel с зажатым ctrlKey
-      const isZoomGesture = event.ctrlKey || event.metaKey;
+      const wheelDelta = getWheelDeltaInPixels(event);
+      const isPanGesture = event.ctrlKey || event.metaKey;
 
-      if (isZoomGesture) {
-        const zoomFactor = Math.exp(-event.deltaY * WHEEL_ZOOM_SENSITIVITY);
+      if (isPanGesture) {
+        moveBy(-wheelDelta.x, -wheelDelta.y);
+      } else {
+        const zoomFactor = Math.exp(-wheelDelta.y * WHEEL_ZOOM_SENSITIVITY);
         const cursorPoint = getPointInsideElement(event, workspaceElement);
         zoomAtPoint(zoomFactor, cursorPoint);
-      } else {
-        moveBy(-event.deltaX, -event.deltaY);
       }
     };
 
