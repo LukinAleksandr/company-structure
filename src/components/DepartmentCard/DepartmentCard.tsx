@@ -6,11 +6,10 @@ import styles from "./DepartmentCard.module.css";
 
 type DepartmentCardProps = {
   department: Department;
-  // Координаты карточки на полотне (в пикселях при масштабе 100%)
+  // В координатах полотна, а не экрана
   position: Point;
 };
 
-// Карточка подразделения на полотне
 export function DepartmentCard({ department, position }: DepartmentCardProps) {
   const head = getDepartmentHead(department);
 

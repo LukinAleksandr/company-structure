@@ -7,7 +7,6 @@ type ZoomControlsProps = {
   onReset: () => void;
 };
 
-// Панель управления масштабом в правом нижнем углу
 export function ZoomControls({ scale, onZoomIn, onZoomOut, onReset }: ZoomControlsProps) {
   const scaleInPercent = Math.round(scale * 100);
 

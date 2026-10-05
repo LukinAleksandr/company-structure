@@ -9,11 +9,6 @@ type WheelNavigationActions = {
   zoomAtPoint: ZoomAtPoint;
 };
 
-/**
- * Навигация колесом мыши:
- *  - колесо — зум к курсору
- *  - Ctrl/Cmd + колесо — прокрутка рабочей области
- */
 export function useWheelNavigation(
   workspaceRef: RefObject<HTMLElement | null>,
   { moveBy, zoomAtPoint }: WheelNavigationActions,
@@ -24,7 +19,6 @@ export function useWheelNavigation(
 
     // Стрелочная функция после проверки на null — TypeScript помнит, что элемент существует
     const handleWheel = (event: WheelEvent) => {
-      // Отключаем стандартный зум/скролл страницы браузером
       event.preventDefault();
 
       const wheelDelta = getWheelDeltaInPixels(event);

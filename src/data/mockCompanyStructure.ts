@@ -1,7 +1,5 @@
 import type { Department } from "../types/department";
 
-// Временные данные. Позже будут приходить с бекенда.
-// Уровни: предприятие → департаменты → отделы → секторы → группы
 export const mockCompanyStructure: Department = {
   id: "company",
   name: "ТОВ «Ромашка»",

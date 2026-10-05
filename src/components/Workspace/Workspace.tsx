@@ -16,10 +16,6 @@ type WorkspaceProps = {
   children: ReactNode;
 };
 
-/**
- * Рабочая область: бесконечное полотно, которое можно двигать и масштабировать.
- * Всё, что передано в children, рисуется на полотне.
- */
 export function Workspace({ children }: WorkspaceProps) {
   const workspaceRef = useRef<HTMLDivElement>(null);
   const { viewport, moveBy, zoomAtPoint, resetViewport } = useViewport();

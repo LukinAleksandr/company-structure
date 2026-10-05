@@ -7,10 +7,6 @@ import { moveViewport, zoomViewportAtPoint } from "../utils/viewport";
 export type MoveBy = (deltaX: number, deltaY: number) => void;
 export type ZoomAtPoint = (zoomFactor: number, screenPoint: Point) => void;
 
-/**
- * Хранит текущее положение и масштаб рабочей области
- * и даёт функции для их изменения.
- */
 export function useViewport() {
   const [viewport, setViewport] = useState<Viewport>(INITIAL_VIEWPORT);
 
