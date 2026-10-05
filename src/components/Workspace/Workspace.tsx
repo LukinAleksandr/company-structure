@@ -2,6 +2,7 @@ import { type ReactNode, useRef } from "react";
 import { BUTTON_ZOOM_FACTOR } from "../../constants/viewport";
 import { useDragPanning } from "../../hooks/useDragPanning";
 import { useSpaceKeyPressed } from "../../hooks/useSpaceKeyPressed";
+import { useTouchNavigation } from "../../hooks/useTouchNavigation";
 import { useViewport } from "../../hooks/useViewport";
 import { useWheelNavigation } from "../../hooks/useWheelNavigation";
 import { getElementCenter } from "../../utils/getElementCenter";
@@ -26,6 +27,7 @@ export function Workspace({ children }: WorkspaceProps) {
   const { isDragging, dragHandlers } = useDragPanning(moveBy, isSpacePressed);
 
   useWheelNavigation(workspaceRef, { moveBy, zoomAtPoint });
+  useTouchNavigation(workspaceRef, { moveBy, zoomAtPoint });
 
   function zoomIn() {
     if (!workspaceRef.current) return;

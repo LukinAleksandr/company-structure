@@ -7,6 +7,7 @@ const MIDDLE_MOUSE_BUTTON = 1;
 
 /**
  * Перемещение рабочей области перетаскиванием мыши.
+ * Касания пальцем сюда не попадают — ими занимается useTouchNavigation.
  * Двигаем, если:
  *  - зажата средняя кнопка мыши
  *  - зажат пробел + левая кнопка
@@ -17,6 +18,8 @@ export function useDragPanning(moveBy: MoveBy, isSpacePressed: boolean) {
   const lastPointerPosition = useRef<Point | null>(null);
 
   function shouldStartDragging(event: PointerEvent<HTMLElement>): boolean {
+    if (event.pointerType === "touch") return false;
+
     const isMiddleButton = event.button === MIDDLE_MOUSE_BUTTON;
     const isLeftButton = event.button === LEFT_MOUSE_BUTTON;
     const isEmptyAreaClicked = event.target === event.currentTarget;
