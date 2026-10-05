@@ -1,5 +1,6 @@
 .department {
   padding: 86px 67px 63px;
+  border-radius: 95px;
   background-color: #f8f8f8;
   font-family: var(--font-sf-pro);
   text-align: center;
