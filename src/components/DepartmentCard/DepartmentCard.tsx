@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import type { Department } from "../../types/department";
 import type { Point } from "../../types/geometry";
 import { getDepartmentHead } from "../../utils/getDepartmentHead";
+import { getEmployeeFullName } from "../../utils/getEmployeeFullName";
 import styles from "./DepartmentCard.module.css";
 
 type DepartmentCardProps = {
@@ -22,7 +23,7 @@ export function DepartmentCard({ department, position }: DepartmentCardProps) {
     <div className={styles.card} style={positionStyle}>
       <div className={styles.name}>{department.name}</div>
       <div className={styles.headPosition}>{head.position}</div>
-      <div className={styles.headName}>{head.fullName}</div>
+      <div className={styles.headName}>{getEmployeeFullName(head)}</div>
     </div>
   );
 }
