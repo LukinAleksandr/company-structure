@@ -5,19 +5,12 @@ import type { MoveBy } from "./useViewport";
 const LEFT_MOUSE_BUTTON = 0;
 const MIDDLE_MOUSE_BUTTON = 1;
 
-/**
- * Перемещение рабочей области перетаскиванием мыши.
- * Касания пальцем сюда не попадают — ими занимается useTouchNavigation.
- * Двигаем, если:
- *  - зажата средняя кнопка мыши
- *  - зажат пробел + левая кнопка
- *  - левой кнопкой тянем за пустое место (не за карточку)
- */
 export function useDragPanning(moveBy: MoveBy, isSpacePressed: boolean) {
   const [isDragging, setIsDragging] = useState(false);
   const lastPointerPosition = useRef<Point | null>(null);
 
   function shouldStartDragging(event: PointerEvent<HTMLElement>): boolean {
+    // Касаниями занимается useTouchNavigation
     if (event.pointerType === "touch") return false;
 
     const isMiddleButton = event.button === MIDDLE_MOUSE_BUTTON;

@@ -9,11 +9,6 @@ type TouchNavigationActions = {
   zoomAtPoint: ZoomAtPoint;
 };
 
-/**
- * Навигация пальцами на телефоне и планшете:
- *  - один палец — перемещение (можно тянуть и за карточку)
- *  - два пальца — зум щипком (pinch) к точке между пальцами + перемещение
- */
 export function useTouchNavigation(
   workspaceRef: RefObject<HTMLElement | null>,
   { moveBy, zoomAtPoint }: TouchNavigationActions,
@@ -22,7 +17,6 @@ export function useTouchNavigation(
     const workspaceElement = workspaceRef.current;
     if (!workspaceElement) return;
 
-    // Пальцы, которые сейчас касаются экрана: id касания → позиция внутри рабочей области
     const activeTouches = new Map<number, Point>();
 
     const handlePointerDown = (event: PointerEvent) => {

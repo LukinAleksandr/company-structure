@@ -7,7 +7,6 @@ type WorkspaceContentProps = {
   children: ReactNode;
 };
 
-// Слой полотна: к нему применяется сдвиг и масштаб рабочей области
 export function WorkspaceContent({ viewport, children }: WorkspaceContentProps) {
   const transform = `translate(${viewport.offsetX}px, ${viewport.offsetY}px) scale(${viewport.scale})`;
 

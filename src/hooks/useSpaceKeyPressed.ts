@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// Отслеживает, зажат ли пробел (в Figma пробел + перетаскивание = перемещение)
 export function useSpaceKeyPressed(): boolean {
   const [isSpacePressed, setIsSpacePressed] = useState(false);
 

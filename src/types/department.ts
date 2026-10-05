@@ -1,11 +1,10 @@
-import type { Point } from "./geometry";
+import type { Employee } from "./employee";
+import type { NonEmptyArray } from "./nonEmptyArray";
 
-// Подразделение предприятия
 export type Department = {
   id: string;
   name: string;
-  headName: string;
-  headPosition: string;
-  // Координаты карточки на полотне (в пикселях при масштабе 100%)
-  position: Point;
+  description: string;
+  staff: NonEmptyArray<Employee>;
+  children: Department[] | null;
 };
