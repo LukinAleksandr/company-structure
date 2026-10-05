@@ -1,11 +1,13 @@
-import type { Point } from "./geometry";
+import type { Employee } from "./employee";
+import type { NonEmptyArray } from "./nonEmptyArray";
 
-// Подразделение предприятия
+// Подразделение предприятия. Само предприятие — тоже подразделение, корень дерева
 export type Department = {
   id: string;
   name: string;
-  headName: string;
-  headPosition: string;
-  // Координаты карточки на полотне (в пикселях при масштабе 100%)
-  position: Point;
+  description: string;
+  // Хотя бы один работник есть всегда — у подразделения должен быть начальник
+  staff: NonEmptyArray<Employee>;
+  // Подчинённые подразделения. null — если подчинённых нет
+  children: Department[] | null;
 };
