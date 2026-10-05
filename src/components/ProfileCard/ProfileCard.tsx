@@ -1,6 +1,7 @@
 import type { Employee } from "../../types/employee";
 import { getEmployeeFullName } from "../../utils/getEmployeeFullName";
 import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
+import { OnlineDot } from "../OnlineDot/OnlineDot";
 import { OnlineStatusBadge } from "../OnlineStatusBadge/OnlineStatusBadge";
 import styles from "./ProfileCard.module.css";
 
@@ -13,6 +14,11 @@ export function ProfileCard({ employee }: ProfileCardProps) {
     <article className={styles.card}>
       <div className={styles.photo}>
         <EmployeePhoto photoUrl={employee.photoUrl} alt={getEmployeeFullName(employee)} />
+        {employee.isOnline && (
+          <div className={styles.onlineDot}>
+            <OnlineDot />
+          </div>
+        )}
       </div>
 
       <p className={styles.position}>{employee.position}</p>

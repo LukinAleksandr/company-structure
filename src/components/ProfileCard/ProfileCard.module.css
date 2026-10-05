@@ -20,6 +20,12 @@
   bottom: 28px;
 }
 
+.onlineDot {
+  position: absolute;
+  top: 32px;
+  right: 42px;
+}
+
 .position {
   margin: 0;
   color: #4c4c4cb5;

@@ -1,0 +1,8 @@
+.dot {
+  display: block;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: #d2f524;
+  box-shadow: 0 0 14px 4px #a1d73ac4;
+}
