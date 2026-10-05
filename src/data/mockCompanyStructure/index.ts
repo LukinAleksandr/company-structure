@@ -8,7 +8,7 @@ import { personnelDepartment } from "./personnelDepartment";
 export const mockCompanyStructure: Department = {
   id: "founders",
   name: "Засновники",
-  description: "Власники ТОВ «Ромашка»",
+  description: "Founders",
   staff: [
     {
       id: "employee-1",

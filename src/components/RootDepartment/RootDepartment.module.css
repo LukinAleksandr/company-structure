@@ -1,0 +1,27 @@
+.department {
+  padding: 86px 67px 63px;
+  background-color: #f8f8f8;
+  font-family: var(--font-sf-pro);
+  text-align: center;
+}
+
+.name {
+  margin: 0;
+  color: #323232;
+  font-size: 61.88px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.description {
+  margin: 0;
+  color: #858585;
+  font-size: 36.29px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.staff {
+  margin-top: 80px;
+  text-align: left;
+}
