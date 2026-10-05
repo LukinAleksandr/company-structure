@@ -1,5 +1,5 @@
 import { type RefObject, useEffect } from "react";
-import { WHEEL_ZOOM_SENSITIVITY } from "../constants/viewport";
+import { MAX_WHEEL_ZOOM_DELTA, WHEEL_ZOOM_SENSITIVITY } from "../constants/viewport";
 import { getPointInsideElement } from "../utils/getPointInsideElement";
 import { getWheelDeltaInPixels } from "../utils/getWheelDeltaInPixels";
 import type { MoveBy, ZoomAtPoint } from "./useViewport";
@@ -22,14 +22,16 @@ export function useWheelNavigation(
       event.preventDefault();
 
       const wheelDelta = getWheelDeltaInPixels(event);
-      const isPanGesture = event.ctrlKey || event.metaKey;
+      // Pinch на тачпаде браузер присылает как wheel с зажатым ctrlKey
+      const isZoomGesture = event.ctrlKey || event.metaKey;
 
-      if (isPanGesture) {
-        moveBy(-wheelDelta.x, -wheelDelta.y);
-      } else {
-        const zoomFactor = Math.exp(-wheelDelta.y * WHEEL_ZOOM_SENSITIVITY);
+      if (isZoomGesture) {
+        const zoomDelta = Math.max(-MAX_WHEEL_ZOOM_DELTA, Math.min(MAX_WHEEL_ZOOM_DELTA, wheelDelta.y));
+        const zoomFactor = Math.exp(-zoomDelta * WHEEL_ZOOM_SENSITIVITY);
         const cursorPoint = getPointInsideElement(event, workspaceElement);
         zoomAtPoint(zoomFactor, cursorPoint);
+      } else {
+        moveBy(-wheelDelta.x, -wheelDelta.y);
       }
     };
 

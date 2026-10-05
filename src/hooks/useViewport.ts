@@ -9,6 +9,8 @@ export type ZoomAtPoint = (zoomFactor: number, screenPoint: Point) => void;
 
 export function useViewport() {
   const [viewport, setViewport] = useState<Viewport>(INITIAL_VIEWPORT);
+  // Куда возвращает кнопка сброса масштаба
+  const [startViewport, setStartViewport] = useState<Viewport>(INITIAL_VIEWPORT);
 
   const moveBy: MoveBy = useCallback((deltaX, deltaY) => {
     setViewport((currentViewport) => moveViewport(currentViewport, deltaX, deltaY));
@@ -19,8 +21,13 @@ export function useViewport() {
   }, []);
 
   const resetViewport = useCallback(() => {
-    setViewport(INITIAL_VIEWPORT);
+    setViewport(startViewport);
+  }, [startViewport]);
+
+  const showStartView = useCallback((newStartViewport: Viewport) => {
+    setStartViewport(newStartViewport);
+    setViewport(newStartViewport);
   }, []);
 
-  return { viewport, moveBy, zoomAtPoint, resetViewport };
+  return { viewport, moveBy, zoomAtPoint, resetViewport, showStartView };
 }

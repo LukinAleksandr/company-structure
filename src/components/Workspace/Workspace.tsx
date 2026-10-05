@@ -1,7 +1,8 @@
-import { type ReactNode, useRef } from "react";
+import { type ReactNode, type RefObject, useRef } from "react";
 import { BUTTON_ZOOM_FACTOR } from "../../constants/viewport";
 import { useDragPanning } from "../../hooks/useDragPanning";
 import { useSpaceKeyPressed } from "../../hooks/useSpaceKeyPressed";
+import { useStartView } from "../../hooks/useStartView";
 import { useTouchNavigation } from "../../hooks/useTouchNavigation";
 import { useViewport } from "../../hooks/useViewport";
 import { useWheelNavigation } from "../../hooks/useWheelNavigation";
@@ -14,16 +15,19 @@ import styles from "./Workspace.module.css";
 
 type WorkspaceProps = {
   children: ReactNode;
+  // Что показать по центру сверху при открытии страницы
+  startViewTargetRef?: RefObject<HTMLElement | null>;
 };
 
-export function Workspace({ children }: WorkspaceProps) {
+export function Workspace({ children, startViewTargetRef }: WorkspaceProps) {
   const workspaceRef = useRef<HTMLDivElement>(null);
-  const { viewport, moveBy, zoomAtPoint, resetViewport } = useViewport();
+  const { viewport, moveBy, zoomAtPoint, resetViewport, showStartView } = useViewport();
   const isSpacePressed = useSpaceKeyPressed();
   const { isDragging, dragHandlers } = useDragPanning(moveBy, isSpacePressed);
 
   useWheelNavigation(workspaceRef, { moveBy, zoomAtPoint });
   useTouchNavigation(workspaceRef, { moveBy, zoomAtPoint });
+  useStartView(workspaceRef, startViewTargetRef, showStartView);
 
   function zoomIn() {
     if (!workspaceRef.current) return;

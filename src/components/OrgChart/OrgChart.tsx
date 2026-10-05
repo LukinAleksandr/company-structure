@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { type Ref, useRef } from "react";
 import { useConnectorAnchors } from "../../hooks/useConnectorAnchors";
 import type { Department } from "../../types/department";
 import { Connectors } from "../Connectors/Connectors";
@@ -8,16 +8,17 @@ import styles from "./OrgChart.module.css";
 
 type OrgChartProps = {
   rootDepartment: Department;
+  ref?: Ref<HTMLDivElement>;
 };
 
-export function OrgChart({ rootDepartment }: OrgChartProps) {
-  const rootRef = useRef<HTMLElement>(null);
+export function OrgChart({ rootDepartment, ref }: OrgChartProps) {
+  const rootDepartmentRef = useRef<HTMLElement>(null);
   const childrenRowRef = useRef<HTMLUListElement>(null);
-  const connectorAnchors = useConnectorAnchors(rootRef, childrenRowRef);
+  const connectorAnchors = useConnectorAnchors(rootDepartmentRef, childrenRowRef);
 
   return (
-    <div className={styles.chart}>
-      <DepartmentSection ref={rootRef} department={rootDepartment} />
+    <div ref={ref} className={styles.chart}>
+      <DepartmentSection ref={rootDepartmentRef} department={rootDepartment} />
 
       {rootDepartment.children && (
         <>
