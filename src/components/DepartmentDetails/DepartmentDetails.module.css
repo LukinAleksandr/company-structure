@@ -1,0 +1,46 @@
+.details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 158px 198px 224px;
+  border-radius: 95px;
+  background-color: #f8f8f8;
+}
+
+.contrast {
+  background-color: #eeeeee;
+}
+
+.closeButton {
+  position: absolute;
+  top: 64px;
+  right: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #ebebeb;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background-color: #dcdcdc;
+}
+
+.closeIcon {
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke: #323232;
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+}
+
+.staff {
+  margin-top: 129px;
+}

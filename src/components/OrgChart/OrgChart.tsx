@@ -1,9 +1,7 @@
-import { type Ref, useRef } from "react";
-import { useConnectorAnchors } from "../../hooks/useConnectorAnchors";
+import { type Ref, useState } from "react";
 import type { Department } from "../../types/department";
-import { Connectors } from "../Connectors/Connectors";
-import { DepartmentRow } from "../DepartmentRow/DepartmentRow";
 import { DepartmentSection } from "../DepartmentSection/DepartmentSection";
+import { Subdepartments } from "../Subdepartments/Subdepartments";
 import styles from "./OrgChart.module.css";
 
 type OrgChartProps = {
@@ -12,19 +10,20 @@ type OrgChartProps = {
 };
 
 export function OrgChart({ rootDepartment, ref }: OrgChartProps) {
-  const rootDepartmentRef = useRef<HTMLElement>(null);
-  const childrenRowRef = useRef<HTMLUListElement>(null);
-  const connectorAnchors = useConnectorAnchors(rootDepartmentRef, childrenRowRef);
+  // В state, а не в useRef: стрелки должны перерисоваться, когда элемент появится
+  const [rootDepartmentElement, setRootDepartmentElement] = useState<HTMLElement | null>(null);
 
   return (
     <div ref={ref} className={styles.chart}>
-      <DepartmentSection ref={rootDepartmentRef} department={rootDepartment} />
+      <DepartmentSection ref={setRootDepartmentElement} department={rootDepartment} />
 
       {rootDepartment.children && (
-        <>
-          <Connectors anchors={connectorAnchors} />
-          <DepartmentRow ref={childrenRowRef} departments={rootDepartment.children} />
-        </>
+        <Subdepartments
+          parentElement={rootDepartmentElement}
+          departments={rootDepartment.children}
+          staffLayout="row"
+          detailsDepth={0}
+        />
       )}
     </div>
   );

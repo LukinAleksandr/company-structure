@@ -1,4 +1,5 @@
 import { type RefObject, useLayoutEffect, useState } from "react";
+import { getListItemElements } from "../utils/getListItemElements";
 import { getOffsetCenterX } from "../utils/getOffsetCenterX";
 
 export type ConnectorAnchors = {
@@ -6,35 +7,41 @@ export type ConnectorAnchors = {
   childCentersX: number[];
 };
 
-// Центры родителя и детей по горизонтали. Пересчитываются при изменении их размеров
+/**
+ * Центры родителя и детей по горизонтали относительно левого края слоя со стрелками.
+ * Все элементы должны иметь общий offsetParent — тогда разница offsetLeft не зависит от зума полотна.
+ * Слой со стрелками растянут на ширину контейнера, поэтому следим и за ним: когда контейнер
+ * расширяется (например, открылся широкий блок), центрированные блоки сдвигаются, не меняя размеров.
+ */
 export function useConnectorAnchors(
-  parentRef: RefObject<HTMLElement | null>,
-  childrenListRef: RefObject<HTMLElement | null>,
+  connectorsRef: RefObject<HTMLElement | null>,
+  parentElement: HTMLElement | null,
+  childrenListElement: HTMLElement | null,
 ): ConnectorAnchors | null {
   const [anchors, setAnchors] = useState<ConnectorAnchors | null>(null);
 
   useLayoutEffect(() => {
-    const parentElement = parentRef.current;
-    const childrenListElement = childrenListRef.current;
-    if (!parentElement || !childrenListElement) return;
+    const connectorsElement = connectorsRef.current;
+    if (!connectorsElement || !parentElement || !childrenListElement) return;
 
     const measure = () => {
-      const childElements = Array.from(childrenListElement.children).filter(
-        (child): child is HTMLElement => child instanceof HTMLElement,
-      );
+      const originX = connectorsElement.offsetLeft;
 
       setAnchors({
-        parentCenterX: getOffsetCenterX(parentElement),
-        childCentersX: childElements.map(getOffsetCenterX),
+        parentCenterX: getOffsetCenterX(parentElement) - originX,
+        childCentersX: getListItemElements(childrenListElement).map(
+          (childElement) => getOffsetCenterX(childElement) - originX,
+        ),
       });
     };
 
     const resizeObserver = new ResizeObserver(measure);
+    resizeObserver.observe(connectorsElement);
     resizeObserver.observe(parentElement);
     resizeObserver.observe(childrenListElement);
 
     return () => resizeObserver.disconnect();
-  }, [parentRef, childrenListRef]);
+  }, [connectorsRef, parentElement, childrenListElement]);
 
   return anchors;
 }
