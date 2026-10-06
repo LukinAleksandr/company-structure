@@ -1,6 +1,9 @@
-.connectors {
+.layer {
   align-self: stretch;
-  width: 100%;
+}
+
+.canvas {
+  display: block;
   overflow: visible;
 }
 

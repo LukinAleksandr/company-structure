@@ -1,21 +1,18 @@
-import { LEVEL_GAP } from "../../constants/connectors";
-import type { ConnectorAnchors } from "../../hooks/useConnectorAnchors";
+import { useRef } from "react";
+import { useConnectorAnchors } from "../../hooks/useConnectorAnchors";
 import { getConnectorPaths } from "../../utils/getConnectorPaths";
-import styles from "./Connectors.module.css";
+import { ConnectorLayer } from "../ConnectorLayer/ConnectorLayer";
 
 type ConnectorsProps = {
-  // null — пока блоки ещё не измерены
-  anchors: ConnectorAnchors | null;
+  parentElement: HTMLElement | null;
+  // Стрелка рисуется к каждому прямому потомку этого элемента
+  childrenListElement: HTMLElement | null;
 };
 
-export function Connectors({ anchors }: ConnectorsProps) {
+export function Connectors({ parentElement, childrenListElement }: ConnectorsProps) {
+  const layerRef = useRef<HTMLDivElement>(null);
+  const anchors = useConnectorAnchors(layerRef, parentElement, childrenListElement);
   const paths = anchors ? getConnectorPaths(anchors.parentCenterX, anchors.childCentersX) : [];
 
-  return (
-    <svg className={styles.connectors} height={LEVEL_GAP} aria-hidden="true">
-      {paths.map((path) => (
-        <path key={path} className={styles.line} d={path} />
-      ))}
-    </svg>
-  );
+  return <ConnectorLayer ref={layerRef} paths={paths} />;
 }
