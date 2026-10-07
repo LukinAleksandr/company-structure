@@ -4,10 +4,12 @@
   --photo-to-text-gap: 48px;
 
   position: relative;
-  width: 1027px;
+  width: max-content;
+  min-width: 1027px;
   height: 328px;
   padding-top: 74.5px;
   padding-left: calc(var(--photo-left) + var(--photo-size) + var(--photo-to-text-gap));
+  padding-right: 57px;
   border-radius: 57px;
   background-color: #ebebeb;
   font-family: var(--font-sf-pro);
@@ -41,6 +43,7 @@
 
 .lastAndFirstName {
   display: block;
+  white-space: nowrap;
   color: #323232;
   font-size: 62px;
   font-weight: 700;
@@ -49,6 +52,7 @@
 
 .patronymic {
   display: block;
+  white-space: nowrap;
   color: #6f6f6f8a;
   font-size: 62px;
   font-weight: 590;
@@ -59,4 +63,25 @@
   position: absolute;
   top: 36px;
   right: 57px;
+}
+
+.openButton {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 0;
+  border: none;
+  border-radius: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Профиль крупнее карточки — раскрываем его поверх, с центром в центре карточки */
+.details {
+  position: absolute;
+  width: max-content;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
 }
