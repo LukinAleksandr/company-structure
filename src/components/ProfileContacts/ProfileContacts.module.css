@@ -1,0 +1,23 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #4c4c4cb5;
+  font-size: 30.72px;
+  font-weight: 510;
+  line-height: 1;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+}
