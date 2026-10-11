@@ -33,3 +33,11 @@
 .openButton:hover {
   color: #5e5e5e;
 }
+
+.dark .openButton {
+  color: #ffffffb3;
+}
+
+.dark .openButton:hover {
+  color: #ffffff;
+}

@@ -1,8 +1,10 @@
 import type { Ref } from "react";
-import { DEFAULT_DEPARTMENT_COLOR } from "../../constants/colors";
+import { DARK_TEXT_COLOR, DEFAULT_DEPARTMENT_COLOR, LIGHT_TEXT_COLOR } from "../../constants/colors";
 import type { Department } from "../../types/department";
 import type { StaffLayout } from "../../types/staffLayout";
 import { getStaffByRole } from "../../utils/getStaffByRole";
+import { isDarkColor } from "../../utils/isDarkColor";
+import { joinClassNames } from "../../utils/joinClassNames";
 import { DepartmentHeader } from "../DepartmentHeader/DepartmentHeader";
 import { StaffList } from "../StaffList/StaffList";
 import { StaffRows } from "../StaffRows/StaffRows";
@@ -29,14 +31,16 @@ export function DepartmentSection({
 }: DepartmentSectionProps) {
   // В свёрнутом виде — только начальники, остальные сотрудники видны после открытия
   const heads = getStaffByRole(department, "head");
+  const backgroundColor = department.color ?? DEFAULT_DEPARTMENT_COLOR;
+  const isDarkBackground = isDarkColor(backgroundColor);
 
   return (
     <section
       ref={ref}
-      className={styles.department}
-      style={{ backgroundColor: department.color ?? DEFAULT_DEPARTMENT_COLOR }}
+      className={joinClassNames(styles.department, isDarkBackground && styles.dark)}
+      style={{ backgroundColor }}
     >
-      <DepartmentHeader name={department.name} />
+      <DepartmentHeader name={department.name} textColor={isDarkBackground ? LIGHT_TEXT_COLOR : DARK_TEXT_COLOR} />
 
       {shouldShowAllStaff ? (
         <div className={styles.staff}>
