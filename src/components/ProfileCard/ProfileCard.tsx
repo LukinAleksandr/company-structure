@@ -9,9 +9,10 @@ import styles from "./ProfileCard.module.css";
 
 type ProfileCardProps = {
   employee: Employee;
+  departmentName: string;
 };
 
-export function ProfileCard({ employee }: ProfileCardProps) {
+export function ProfileCard({ employee, departmentName }: ProfileCardProps) {
   const [isDetailsOpened, setIsDetailsOpened] = useState(false);
   const fullName = getEmployeeFullName(employee);
 
@@ -29,12 +30,11 @@ export function ProfileCard({ employee }: ProfileCardProps) {
         <EmployeePhoto photoUrl={employee.photo} alt={fullName} />
       </div>
 
-      <p className={styles.position}>{MISSING_VALUE_PLACEHOLDER}</p>
+      {/* Временно: должности бекенд не присылает, вместо неё показываем type как есть */}
+      <p className={styles.position}>{employee.type ?? MISSING_VALUE_PLACEHOLDER}</p>
       <h2 className={styles.name}>
-        <span className={styles.lastAndFirstName}>
-          {employee.surname} {employee.name}
-        </span>
-        <span className={styles.patronymic}>{MISSING_VALUE_PLACEHOLDER}</span>
+        <span className={styles.lastName}>{employee.surname}</span>
+        <span className={styles.firstName}>{employee.name}</span>
       </h2>
 
       <div className={styles.status}>
@@ -43,7 +43,11 @@ export function ProfileCard({ employee }: ProfileCardProps) {
 
       {isDetailsOpened && (
         <div className={styles.details}>
-          <ProfileDetails employee={employee} onClose={() => setIsDetailsOpened(false)} />
+          <ProfileDetails
+            employee={employee}
+            departmentName={departmentName}
+            onClose={() => setIsDetailsOpened(false)}
+          />
         </div>
       )}
     </article>

@@ -55,7 +55,7 @@
   font: inherit;
 }
 
-.lastAndFirstName {
+.lastName {
   display: block;
   white-space: nowrap;
   color: #323232;
@@ -64,7 +64,7 @@
   line-height: 1;
 }
 
-.patronymic {
+.firstName {
   display: block;
   white-space: nowrap;
   color: #6f6f6f8a;
