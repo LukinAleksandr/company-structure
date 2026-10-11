@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { MISSING_VALUE_PLACEHOLDER } from "../../constants/placeholders";
 import type { Department } from "../../types/department";
 import { joinClassNames } from "../../utils/joinClassNames";
 import { DepartmentHeader } from "../DepartmentHeader/DepartmentHeader";
@@ -28,7 +27,7 @@ export function DepartmentDetails({ department, depth, onClose }: DepartmentDeta
         </svg>
       </button>
 
-      <DepartmentHeader name={department.name} description={MISSING_VALUE_PLACEHOLDER} />
+      <DepartmentHeader name={department.name} />
 
       {/* Без людей стрелкам к подотделам не от чего начинаться — staffElement останется null */}
       <div className={styles.staff}>

@@ -5,10 +5,14 @@
   line-height: 1;
 }
 
-.online {
+.green {
   color: #8bb831;
 }
 
-.offline {
+.yellow {
+  color: #e0a800;
+}
+
+.gray {
   color: #a6a6a6;
 }

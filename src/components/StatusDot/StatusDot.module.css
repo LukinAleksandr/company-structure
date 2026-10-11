@@ -1,0 +1,48 @@
+/*
+ * По макету свечение — не тень, а отдельный размытый круг 49px под кружком 27px.
+ * ::before — свечение, ::after — сам кружок: псевдоэлементы рисуются по порядку, поэтому кружок оказывается сверху.
+ */
+.dot {
+  position: relative;
+  display: block;
+  width: 27px;
+  height: 27px;
+}
+
+.dot::before,
+.dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dot::before {
+  width: 49px;
+  height: 49px;
+  background-color: var(--status-glow-color);
+  filter: blur(14.82px);
+}
+
+.dot::after {
+  width: 100%;
+  height: 100%;
+  background-color: var(--status-color);
+}
+
+.green {
+  --status-color: #a1d73a;
+  --status-glow-color: #a1d73ac4;
+}
+
+.yellow {
+  --status-color: #f5c52e;
+  --status-glow-color: #f5c52ec4;
+}
+
+.gray {
+  --status-color: #a6a6a6;
+  --status-glow-color: #a6a6a6c4;
+}

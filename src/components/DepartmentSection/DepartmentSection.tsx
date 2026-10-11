@@ -1,5 +1,5 @@
 import type { Ref } from "react";
-import { MISSING_VALUE_PLACEHOLDER } from "../../constants/placeholders";
+import { DEFAULT_DEPARTMENT_COLOR } from "../../constants/colors";
 import type { Department } from "../../types/department";
 import type { StaffLayout } from "../../types/staffLayout";
 import { getStaffByRole } from "../../utils/getStaffByRole";
@@ -31,8 +31,12 @@ export function DepartmentSection({
   const heads = getStaffByRole(department, "head");
 
   return (
-    <section ref={ref} className={styles.department}>
-      <DepartmentHeader name={department.name} description={MISSING_VALUE_PLACEHOLDER} />
+    <section
+      ref={ref}
+      className={styles.department}
+      style={{ backgroundColor: department.color ?? DEFAULT_DEPARTMENT_COLOR }}
+    >
+      <DepartmentHeader name={department.name} />
 
       {shouldShowAllStaff ? (
         <div className={styles.staff}>

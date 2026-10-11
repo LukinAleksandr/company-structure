@@ -32,7 +32,11 @@ export function Subdepartments({ parentElement, departments, staffLayout, detail
 
   return (
     <>
-      <Connectors parentElement={parentElement} childrenListElement={rowElement} />
+      <Connectors
+        parentElement={parentElement}
+        childrenListElement={rowElement}
+        childColors={departments.map((department) => department.color)}
+      />
       <DepartmentRow
         ref={setRowElement}
         departments={departments}

@@ -6,7 +6,6 @@
   min-width: 1161px;
   padding: 86px 67px 63px;
   border-radius: 95px;
-  background-color: #f8f8f8;
 }
 
 /* Прижимает кнопку к низу карточки, когда карточка вытянута по высоте соседей */
@@ -20,18 +19,17 @@
 }
 
 .openButton {
-  padding: 24px 72px;
+  padding: 0;
   border: none;
-  border-radius: 999px;
-  background-color: #323232;
-  color: #ffffff;
+  background: none;
+  color: #858585;
   font-family: var(--font-sf-pro);
-  font-size: 36px;
+  font-size: 50px;
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
 }
 
 .openButton:hover {
-  background-color: #4c4c4c;
+  color: #5e5e5e;
 }

@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { DEFAULT_CONNECTOR_COLOR } from "../../constants/colors";
 import { usePairedConnections } from "../../hooks/usePairedConnections";
 import { getPairedConnectorPaths } from "../../utils/getPairedConnectorPaths";
 import { ConnectorLayer } from "../ConnectorLayer/ConnectorLayer";
@@ -14,5 +15,7 @@ export function PairedConnectors({ parentsListElement, parentIndexes, childrenLi
   const layerRef = useRef<HTMLDivElement>(null);
   const connections = usePairedConnections(layerRef, parentsListElement, parentIndexes, childrenListElement);
 
-  return <ConnectorLayer ref={layerRef} paths={getPairedConnectorPaths(connections)} />;
+  const lines = getPairedConnectorPaths(connections).map((path) => ({ path, color: DEFAULT_CONNECTOR_COLOR }));
+
+  return <ConnectorLayer ref={layerRef} lines={lines} />;
 }
