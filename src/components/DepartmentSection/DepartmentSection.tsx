@@ -41,7 +41,7 @@ export function DepartmentSection({
       ) : (
         heads.length > 0 && (
           <div className={styles.staff}>
-            <StaffList staff={heads} layout={staffLayout} />
+            <StaffList staff={heads} departmentName={department.name} layout={staffLayout} />
           </div>
         )
       )}

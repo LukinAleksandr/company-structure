@@ -17,8 +17,8 @@ export function StaffRows({ department, ref }: StaffRowsProps) {
 
   return (
     <div ref={ref} className={styles.rows}>
-      {heads.length > 0 && <StaffList staff={heads} />}
-      {regularStaff.length > 0 && <StaffList staff={regularStaff} />}
+      {heads.length > 0 && <StaffList staff={heads} departmentName={department.name} />}
+      {regularStaff.length > 0 && <StaffList staff={regularStaff} departmentName={department.name} />}
     </div>
   );
 }
