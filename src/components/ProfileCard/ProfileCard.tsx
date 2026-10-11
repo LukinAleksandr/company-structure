@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { MISSING_VALUE_PLACEHOLDER } from "../../constants/placeholders";
 import type { Employee } from "../../types/employee";
 import { getEmployeeFullName } from "../../utils/getEmployeeFullName";
 import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
-import { OnlineStatusBadge } from "../OnlineStatusBadge/OnlineStatusBadge";
 import { ProfileDetails } from "../ProfileDetails/ProfileDetails";
+import { StatusBadge } from "../StatusBadge/StatusBadge";
+import { StatusDot } from "../StatusDot/StatusDot";
 import styles from "./ProfileCard.module.css";
 
 type ProfileCardProps = {
@@ -28,17 +28,19 @@ export function ProfileCard({ employee, departmentName }: ProfileCardProps) {
 
       <div className={styles.photo}>
         <EmployeePhoto photoUrl={employee.photo} alt={fullName} />
+        <div className={styles.statusDot}>
+          <StatusDot status={employee.status} />
+        </div>
       </div>
 
-      {/* Временно: должности бекенд не присылает, вместо неё показываем type как есть */}
-      <p className={styles.position}>{employee.type ?? MISSING_VALUE_PLACEHOLDER}</p>
+      <p className={styles.position}>{employee.position}</p>
       <h2 className={styles.name}>
         <span className={styles.lastName}>{employee.surname}</span>
         <span className={styles.firstName}>{employee.name}</span>
       </h2>
 
       <div className={styles.status}>
-        <OnlineStatusBadge isOnline={null} />
+        <StatusBadge status={employee.status} />
       </div>
 
       {isDetailsOpened && (

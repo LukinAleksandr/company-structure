@@ -1,5 +1,4 @@
 import closeIconUrl from "../../assets/icons/close.svg";
-import { MISSING_VALUE_PLACEHOLDER } from "../../constants/placeholders";
 import type { Employee } from "../../types/employee";
 import { getEmployeeFullName } from "../../utils/getEmployeeFullName";
 import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
@@ -21,14 +20,13 @@ export function ProfileDetails({ employee, departmentName, onClose }: ProfileDet
         <img className={styles.closeIcon} src={closeIconUrl} alt="" />
       </button>
 
-      <ProfileHeader departmentName={departmentName} city={null} isOnline={null} />
+      <ProfileHeader departmentName={departmentName} city={employee.city} status={employee.status} />
 
       <div className={styles.main}>
         <EmployeePhoto photoUrl={employee.photo} alt={getEmployeeFullName(employee)} size="large" />
 
         <div>
-          {/* Временно: должности бекенд не присылает, вместо неё показываем type как есть */}
-          <p className={styles.position}>{employee.type ?? MISSING_VALUE_PLACEHOLDER}</p>
+          <p className={styles.position}>{employee.position}</p>
           <h2 className={styles.name}>
             <span className={styles.lastName}>{employee.surname}</span>
             <span className={styles.firstName}>{employee.name}</span>

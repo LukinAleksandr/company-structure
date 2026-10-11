@@ -1,16 +1,16 @@
 import locationIconUrl from "../../assets/icons/location.svg";
-import { MISSING_VALUE_PLACEHOLDER } from "../../constants/placeholders";
-import { OnlineDot } from "../OnlineDot/OnlineDot";
-import { OnlineStatusBadge } from "../OnlineStatusBadge/OnlineStatusBadge";
+import type { EmployeeStatus } from "../../types/employee";
+import { StatusBadge } from "../StatusBadge/StatusBadge";
+import { StatusDot } from "../StatusDot/StatusDot";
 import styles from "./ProfileHeader.module.css";
 
 type ProfileHeaderProps = {
   departmentName: string;
-  city: string | null;
-  isOnline: boolean | null;
+  city: string;
+  status: EmployeeStatus;
 };
 
-export function ProfileHeader({ departmentName, city, isOnline }: ProfileHeaderProps) {
+export function ProfileHeader({ departmentName, city, status }: ProfileHeaderProps) {
   return (
     <header className={styles.header}>
       <p className={styles.department}>{departmentName}</p>
@@ -18,12 +18,12 @@ export function ProfileHeader({ departmentName, city, isOnline }: ProfileHeaderP
       <div className={styles.locationAndStatus}>
         <p className={styles.city}>
           <img className={styles.locationIcon} src={locationIconUrl} alt="" />
-          {city === null ? MISSING_VALUE_PLACEHOLDER : `м.${city}`}
+          м.{city}
         </p>
         <span className={styles.divider} aria-hidden="true" />
         <p className={styles.status}>
-          <OnlineStatusBadge isOnline={isOnline} />
-          {isOnline && <OnlineDot />}
+          <StatusBadge status={status} />
+          <StatusDot status={status} />
         </p>
       </div>
     </header>

@@ -4,8 +4,10 @@ import type { Employee } from "./employee";
 export type Department = {
   id: number;
   name: string;
-  type: "department" | "division" | null;
+  type: "founders" | "department" | "division";
   parent_id: number | null;
+  // Пока у всех null
+  color: string | null;
   staff: Employee[] | null;
   children: Department[] | null;
 };
