@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 export function useOpenedDepartments() {
-  const [openedDepartmentIds, setOpenedDepartmentIds] = useState<string[]>([]);
+  const [openedDepartmentIds, setOpenedDepartmentIds] = useState<number[]>([]);
 
-  function toggleDepartment(departmentId: string) {
+  function toggleDepartment(departmentId: number) {
     setOpenedDepartmentIds((currentIds) =>
       currentIds.includes(departmentId)
         ? currentIds.filter((currentId) => currentId !== departmentId)
@@ -11,7 +11,7 @@ export function useOpenedDepartments() {
     );
   }
 
-  function closeDepartment(departmentId: string) {
+  function closeDepartment(departmentId: number) {
     setOpenedDepartmentIds((currentIds) => currentIds.filter((currentId) => currentId !== departmentId));
   }
 

@@ -1,14 +1,15 @@
+// Поля названы как в ответе бекенда (snake_case) — временно, пока нет преобразования ответа в наши типы
 export type Employee = {
-  id: string;
-  lastName: string;
-  firstName: string;
-  patronymic: string;
-  photoUrl: string | null;
-  position: string;
-  departmentName: string;
-  city: string;
+  id: number;
+  name: string;
+  surname: string;
+  // Может прийти пустой строкой
   phone: string;
+  // Приходит в произвольном виде: "@nick", "nick", ссылка t.me, а иногда вообще не ник
+  telegram: string | null;
   email: string;
-  isOnline: boolean;
-  isHead: boolean;
+  birthday: string | null;
+  photo: string;
+  type: "founder" | "manager" | "team_lead" | "subordinate" | null;
+  department_role: "head" | "staff";
 };

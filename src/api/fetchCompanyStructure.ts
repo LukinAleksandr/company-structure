@@ -1,14 +1,15 @@
-import { COMPANY_STRUCTURE_ENDPOINT, MOCK_RESPONSE_DELAY_MS, SHOULD_USE_MOCK_API } from "../constants/api";
-import { mockCompanyStructure } from "../data/mockCompanyStructure";
+import { COMPANY_STRUCTURE_ENDPOINT } from "../constants/api";
 import type { Department } from "../types/department";
-import { wait } from "../utils/wait";
 import { requestJson } from "./requestJson";
 
 export async function fetchCompanyStructure(signal: AbortSignal): Promise<Department> {
-  if (SHOULD_USE_MOCK_API) {
-    await wait(MOCK_RESPONSE_DELAY_MS, signal);
-    return mockCompanyStructure;
+  // Бекенд присылает массив корней, но корень у предприятия один
+  const rootDepartments = await requestJson<Department[]>(COMPANY_STRUCTURE_ENDPOINT, signal);
+  const [rootDepartment] = rootDepartments;
+
+  if (!rootDepartment) {
+    throw new Error("Бекенд прислал пустую структуру предприятия");
   }
 
-  return requestJson<Department>(COMPANY_STRUCTURE_ENDPOINT, signal);
+  return rootDepartment;
 }

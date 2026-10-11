@@ -6,7 +6,7 @@ import styles from "./DepartmentDetailsRow.module.css";
 type DepartmentDetailsRowProps = {
   departments: Department[];
   depth: number;
-  onCloseDepartment: (departmentId: string) => void;
+  onCloseDepartment: (departmentId: number) => void;
   ref?: Ref<HTMLUListElement>;
 };
 

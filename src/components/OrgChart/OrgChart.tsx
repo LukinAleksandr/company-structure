@@ -15,7 +15,7 @@ export function OrgChart({ rootDepartment, ref }: OrgChartProps) {
 
   return (
     <div ref={ref} className={styles.chart}>
-      <DepartmentSection ref={setRootDepartmentElement} department={rootDepartment} />
+      <DepartmentSection ref={setRootDepartmentElement} department={rootDepartment} shouldShowAllStaff />
 
       {rootDepartment.children && (
         <Subdepartments

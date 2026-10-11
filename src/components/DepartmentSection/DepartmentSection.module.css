@@ -2,17 +2,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* Ширина карточки с одним человеком: карточка профиля (1027px) + боковые отступы (2 × 67px) */
+  min-width: 1161px;
   padding: 86px 67px 63px;
   border-radius: 95px;
   background-color: #f8f8f8;
 }
 
-.staff {
+/* Прижимает кнопку к низу карточки, когда карточка вытянута по высоте соседей */
+.openButtonWrapper {
+  margin-top: auto;
+  padding-top: 63px;
+}
+
+.staff:not(:empty) {
   margin-top: 129px;
 }
 
 .openButton {
-  margin-top: 63px;
   padding: 24px 72px;
   border: none;
   border-radius: 999px;

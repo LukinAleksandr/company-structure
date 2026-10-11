@@ -1,5 +1,6 @@
 import mailIconUrl from "../../assets/icons/mail.svg";
 import phoneIconUrl from "../../assets/icons/phone.svg";
+import { MISSING_VALUE_PLACEHOLDER } from "../../constants/placeholders";
 import styles from "./ProfileContacts.module.css";
 
 type ProfileContactsProps = {
@@ -12,7 +13,7 @@ export function ProfileContacts({ phone, email }: ProfileContactsProps) {
     <ul className={styles.contacts}>
       <li className={styles.contact}>
         <img className={styles.icon} src={phoneIconUrl} alt="Телефон" />
-        <span>{phone}</span>
+        <span>{phone || MISSING_VALUE_PLACEHOLDER}</span>
       </li>
       <li className={styles.contact}>
         <img className={styles.icon} src={mailIconUrl} alt="Email" />
