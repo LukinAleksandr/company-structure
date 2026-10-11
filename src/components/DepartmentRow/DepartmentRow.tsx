@@ -1,15 +1,15 @@
 import type { Ref } from "react";
 import type { Department } from "../../types/department";
 import type { StaffLayout } from "../../types/staffLayout";
-import { hasChildren } from "../../utils/hasChildren";
+import { canOpenDepartment } from "../../utils/canOpenDepartment";
 import { DepartmentSection } from "../DepartmentSection/DepartmentSection";
 import styles from "./DepartmentRow.module.css";
 
 type DepartmentRowProps = {
   departments: Department[];
   staffLayout?: StaffLayout;
-  openedDepartmentIds?: string[];
-  onToggleDepartment?: (departmentId: string) => void;
+  openedDepartmentIds?: number[];
+  onToggleDepartment?: (departmentId: number) => void;
   ref?: Ref<HTMLUListElement>;
 };
 
@@ -23,13 +23,13 @@ export function DepartmentRow({
   return (
     <ul ref={ref} className={styles.row}>
       {departments.map((department) => (
-        <li key={department.id}>
+        <li key={department.id} className={styles.item}>
           <DepartmentSection
             department={department}
             staffLayout={staffLayout}
             isOpened={openedDepartmentIds.includes(department.id)}
             onToggleOpen={
-              onToggleDepartment && hasChildren(department) ? () => onToggleDepartment(department.id) : undefined
+              onToggleDepartment && canOpenDepartment(department) ? () => onToggleDepartment(department.id) : undefined
             }
           />
         </li>

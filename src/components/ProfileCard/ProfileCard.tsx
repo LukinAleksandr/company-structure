@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { MISSING_VALUE_PLACEHOLDER } from "../../constants/placeholders";
 import type { Employee } from "../../types/employee";
 import { getEmployeeFullName } from "../../utils/getEmployeeFullName";
 import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
-import { OnlineDot } from "../OnlineDot/OnlineDot";
 import { OnlineStatusBadge } from "../OnlineStatusBadge/OnlineStatusBadge";
 import { ProfileDetails } from "../ProfileDetails/ProfileDetails";
 import styles from "./ProfileCard.module.css";
@@ -26,24 +26,19 @@ export function ProfileCard({ employee }: ProfileCardProps) {
       />
 
       <div className={styles.photo}>
-        <EmployeePhoto photoUrl={employee.photoUrl} alt={fullName} />
-        {employee.isOnline && (
-          <div className={styles.onlineDot}>
-            <OnlineDot />
-          </div>
-        )}
+        <EmployeePhoto photoUrl={employee.photo} alt={fullName} />
       </div>
 
-      <p className={styles.position}>{employee.position}</p>
+      <p className={styles.position}>{MISSING_VALUE_PLACEHOLDER}</p>
       <h2 className={styles.name}>
         <span className={styles.lastAndFirstName}>
-          {employee.lastName} {employee.firstName}
+          {employee.surname} {employee.name}
         </span>
-        <span className={styles.patronymic}>{employee.patronymic}</span>
+        <span className={styles.patronymic}>{MISSING_VALUE_PLACEHOLDER}</span>
       </h2>
 
       <div className={styles.status}>
-        <OnlineStatusBadge isOnline={employee.isOnline} />
+        <OnlineStatusBadge isOnline={null} />
       </div>
 
       {isDetailsOpened && (

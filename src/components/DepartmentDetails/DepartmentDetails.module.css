@@ -41,6 +41,6 @@
   stroke-linecap: round;
 }
 
-.staff {
+.staff:not(:empty) {
   margin-top: 129px;
 }

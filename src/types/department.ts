@@ -1,10 +1,11 @@
 import type { Employee } from "./employee";
-import type { NonEmptyArray } from "./nonEmptyArray";
 
+// Поля названы как в ответе бекенда (snake_case) — временно, пока нет преобразования ответа в наши типы
 export type Department = {
-  id: string;
+  id: number;
   name: string;
-  description: string;
-  staff: NonEmptyArray<Employee>;
+  type: "department" | "division" | null;
+  parent_id: number | null;
+  staff: Employee[] | null;
   children: Department[] | null;
 };
