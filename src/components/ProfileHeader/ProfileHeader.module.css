@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.department {
+  margin: 0;
+  color: #4c4c4cb5;
+  font-size: 30px;
+  font-weight: 510;
+  line-height: 1;
+}
+
+.locationAndStatus {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 85px;
+  padding: 0 44px 0 40px;
+  border-radius: 999px;
+  background-color: #ebebeb;
+}
+
+.city,
+.status {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.city {
+  gap: 16px;
+  color: #4c4c4cb5;
+  font-size: 25px;
+  font-weight: 510;
+  line-height: 1;
+}
+
+.status {
+  gap: 24px;
+}
+
+.locationIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.divider {
+  width: 2px;
+  height: 36px;
+  background-color: #cccccc;
+}

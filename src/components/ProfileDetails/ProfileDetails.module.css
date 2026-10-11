@@ -1,0 +1,86 @@
+.details {
+  position: relative;
+  margin: 0;
+  padding: 42px 140px 120px;
+  border: none;
+  border-radius: 75px;
+  background-color: #f4f4f4;
+  box-shadow: 0 11px 37.2px 0 #00000040;
+  color: inherit;
+  font-family: var(--font-sf-pro);
+}
+
+.closeButton {
+  position: absolute;
+  top: 51px;
+  right: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 57px;
+  height: 57px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #ee6262;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background-color: #e04848;
+}
+
+.closeIcon {
+  width: 34px;
+  height: 34px;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: 68px;
+  margin-top: 54px;
+}
+
+.position {
+  margin: 0;
+  color: #4c4c4cb5;
+  font-size: 41.81px;
+  font-weight: 510;
+  line-height: 1;
+}
+
+.name {
+  margin: 0;
+  font: inherit;
+}
+
+.lastAndFirstName {
+  display: block;
+  white-space: nowrap;
+  color: #323232;
+  font-size: 81.4px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.patronymic {
+  display: block;
+  white-space: nowrap;
+  color: #6f6f6f8a;
+  font-size: 81.4px;
+  font-weight: 590;
+  line-height: 1;
+}
+
+.divider {
+  width: 236px;
+  height: 2px;
+  margin: 31px 0 47px;
+  border: none;
+  background-color: #cccccc;
+}
+
+.actions {
+  margin-top: 77px;
+}
