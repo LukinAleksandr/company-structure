@@ -44,12 +44,17 @@ export function DepartmentSection({
 
       {shouldShowAllStaff ? (
         <div className={styles.staff}>
-          <StaffRows department={department} />
+          <StaffRows department={department} isOnDarkBackground={isDarkBackground} />
         </div>
       ) : (
         heads.length > 0 && (
           <div className={styles.staff}>
-            <StaffList staff={heads} departmentName={department.name} layout={staffLayout} />
+            <StaffList
+              staff={heads}
+              departmentName={department.name}
+              layout={staffLayout}
+              isOnDarkBackground={isDarkBackground}
+            />
           </div>
         )
       )}

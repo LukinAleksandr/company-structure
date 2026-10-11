@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Employee } from "../../types/employee";
 import { getEmployeeFullName } from "../../utils/getEmployeeFullName";
+import { joinClassNames } from "../../utils/joinClassNames";
 import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
 import { ProfileDetails } from "../ProfileDetails/ProfileDetails";
 import { StatusBadge } from "../StatusBadge/StatusBadge";
@@ -10,14 +11,15 @@ import styles from "./ProfileCard.module.css";
 type ProfileCardProps = {
   employee: Employee;
   departmentName: string;
+  isOnDarkBackground?: boolean;
 };
 
-export function ProfileCard({ employee, departmentName }: ProfileCardProps) {
+export function ProfileCard({ employee, departmentName, isOnDarkBackground = false }: ProfileCardProps) {
   const [isDetailsOpened, setIsDetailsOpened] = useState(false);
   const fullName = getEmployeeFullName(employee);
 
   return (
-    <article className={styles.card}>
+    <article className={joinClassNames(styles.card, isOnDarkBackground && styles.dark)}>
       {/* Невидимая кнопка на всю карточку: так карточка кликабельна и доступна с клавиатуры */}
       <button
         type="button"
@@ -27,7 +29,7 @@ export function ProfileCard({ employee, departmentName }: ProfileCardProps) {
       />
 
       <div className={styles.photo}>
-        <EmployeePhoto photoUrl={employee.photo} alt={fullName} />
+        <EmployeePhoto photoUrl={employee.photo} alt={fullName} isOnDarkBackground={isOnDarkBackground} />
         <div className={styles.statusDot}>
           <StatusDot status={employee.status} />
         </div>
