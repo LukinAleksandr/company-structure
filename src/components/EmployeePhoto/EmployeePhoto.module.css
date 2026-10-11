@@ -14,3 +14,7 @@
   height: 455px;
   border-width: 4px;
 }
+
+.onDark {
+  border-color: #ffffff;
+}

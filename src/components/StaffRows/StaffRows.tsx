@@ -6,10 +6,11 @@ import styles from "./StaffRows.module.css";
 
 type StaffRowsProps = {
   department: Department;
+  isOnDarkBackground?: boolean;
   ref?: Ref<HTMLDivElement>;
 };
 
-export function StaffRows({ department, ref }: StaffRowsProps) {
+export function StaffRows({ department, isOnDarkBackground = false, ref }: StaffRowsProps) {
   const heads = getStaffByRole(department, "head");
   const regularStaff = getStaffByRole(department, "staff");
 
@@ -17,8 +18,12 @@ export function StaffRows({ department, ref }: StaffRowsProps) {
 
   return (
     <div ref={ref} className={styles.rows}>
-      {heads.length > 0 && <StaffList staff={heads} departmentName={department.name} />}
-      {regularStaff.length > 0 && <StaffList staff={regularStaff} departmentName={department.name} />}
+      {heads.length > 0 && (
+        <StaffList staff={heads} departmentName={department.name} isOnDarkBackground={isOnDarkBackground} />
+      )}
+      {regularStaff.length > 0 && (
+        <StaffList staff={regularStaff} departmentName={department.name} isOnDarkBackground={isOnDarkBackground} />
+      )}
     </div>
   );
 }

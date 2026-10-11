@@ -59,6 +59,19 @@
   line-height: 1;
 }
 
+/* Те же оттенки, что и на светлом фоне, только на основе белого */
+.dark .position {
+  color: #ffffffb5;
+}
+
+.dark .lastName {
+  color: #ffffff;
+}
+
+.dark .firstName {
+  color: #ffffff8a;
+}
+
 .status {
   position: absolute;
   top: 36px;
