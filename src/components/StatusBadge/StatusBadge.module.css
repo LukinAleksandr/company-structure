@@ -1,5 +1,5 @@
 .badge {
-  font-family: "Mont", var(--font-sf-pro);
+  font-family: var(--font-montserrat);
   font-size: 20px;
   font-weight: 700;
   line-height: 1;

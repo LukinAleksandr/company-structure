@@ -1,6 +1,9 @@
 :root {
-  /* SF Pro нельзя подключить как веб-шрифт по лицензии Apple — на Apple-устройствах его даёт -apple-system */
-  --font-sf-pro: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  /* SF Pro нельзя подключить как веб-шрифт по лицензии Apple — на Apple-устройствах его даёт -apple-system,
+     на остальных вместо него похожий Inter (подключён в index.html) */
+  --font-sf-pro: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+  /* По макету Mont, но у него нет бесплатной веб-лицензии — заменяем на Montserrat */
+  --font-montserrat: "Montserrat", var(--font-sf-pro);
 }
 
 * {
