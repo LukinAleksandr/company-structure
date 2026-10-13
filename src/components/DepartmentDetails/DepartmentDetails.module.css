@@ -32,6 +32,14 @@
   background-color: #dcdcdc;
 }
 
+.dark .closeButton {
+  background-color: #ffffff33;
+}
+
+.dark .closeButton:hover {
+  background-color: #ffffff4d;
+}
+
 .closeIcon {
   width: 48px;
   height: 48px;
@@ -43,4 +51,8 @@
 
 .staff:not(:empty) {
   margin-top: 129px;
+}
+
+.dark .closeIcon {
+  stroke: #ffffff;
 }
