@@ -1,5 +1,5 @@
 .card {
-  --photo-left: 106px;
+  --photo-left: 75px;
   --photo-size: 345px;
   --photo-to-text-gap: 48px;
 
@@ -12,6 +12,7 @@
   padding-right: 57px;
   border-radius: 57px;
   background-color: #f3f3f33b;
+  box-shadow: 0 12px 40px #00000014;
   font-family: var(--font-sf-pro);
 }
 

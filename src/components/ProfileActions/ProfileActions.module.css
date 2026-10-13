@@ -11,7 +11,7 @@
   padding: 0 43px;
   border-radius: 15px;
   color: #4e4e4e;
-  font-family: "Mont", var(--font-sf-pro);
+  font-family: var(--font-montserrat);
   font-size: 29.56px;
   font-weight: 700;
   line-height: 1;
