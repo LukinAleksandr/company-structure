@@ -6,6 +6,7 @@ import {
   CONNECTOR_SPACING,
   CONNECTOR_TOP_OFFSET,
   LEVEL_GAP,
+  STRAIGHT_CONNECTOR_TOLERANCE,
 } from "../constants/connectors";
 import type { Connection } from "../types/connection";
 
@@ -32,8 +33,8 @@ export function getPairedConnectorPaths(connections: Connection[]): string[] {
 function getLinePath(startX: number, endX: number, turnY: number): string {
   const horizontalDistance = Math.abs(endX - startX);
 
-  if (horizontalDistance < 1) {
-    return `M ${startX} ${CONNECTOR_TOP_OFFSET} V ${END_Y}`;
+  if (horizontalDistance < STRAIGHT_CONNECTOR_TOLERANCE) {
+    return `M ${endX} ${CONNECTOR_TOP_OFFSET} V ${END_Y}`;
   }
 
   const radius = Math.min(CONNECTOR_CORNER_RADIUS, horizontalDistance / 2);

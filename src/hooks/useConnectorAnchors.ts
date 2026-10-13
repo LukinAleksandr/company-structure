@@ -38,7 +38,8 @@ export function useConnectorAnchors(
     const resizeObserver = new ResizeObserver(measure);
     resizeObserver.observe(connectorsElement);
     resizeObserver.observe(parentElement);
-    resizeObserver.observe(childrenListElement);
+    // border-box: ряд может сдвинуться отступами (useMiddleItemCentering), не меняя ширины содержимого
+    resizeObserver.observe(childrenListElement, { box: "border-box" });
 
     return () => resizeObserver.disconnect();
   }, [connectorsRef, parentElement, childrenListElement]);

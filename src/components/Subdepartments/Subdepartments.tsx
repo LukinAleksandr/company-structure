@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useMiddleItemCentering } from "../../hooks/useMiddleItemCentering";
 import { useOpenedDepartments } from "../../hooks/useOpenedDepartments";
 import type { Department } from "../../types/department";
 import type { StaffLayout } from "../../types/staffLayout";
@@ -22,6 +23,7 @@ export function Subdepartments({ parentElement, departments, staffLayout, detail
   // Элементы в state, а не в useRef: стрелки должны перерисоваться, когда элемент появится
   const [rowElement, setRowElement] = useState<HTMLUListElement | null>(null);
   const [detailsRowElement, setDetailsRowElement] = useState<HTMLUListElement | null>(null);
+  const rowCenteringPadding = useMiddleItemCentering(rowElement);
 
   const { openedDepartmentIds, toggleDepartment, closeDepartment } = useOpenedDepartments();
   const openedDepartments = departments.filter((department) => openedDepartmentIds.includes(department.id));
@@ -39,6 +41,7 @@ export function Subdepartments({ parentElement, departments, staffLayout, detail
       />
       <DepartmentRow
         ref={setRowElement}
+        centeringPadding={rowCenteringPadding}
         departments={departments}
         staffLayout={staffLayout}
         openedDepartmentIds={openedDepartmentIds}
