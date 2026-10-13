@@ -42,7 +42,8 @@ export function usePairedConnections(
 
     const resizeObserver = new ResizeObserver(measure);
     resizeObserver.observe(connectorsElement);
-    resizeObserver.observe(parentsListElement);
+    // border-box: ряд может сдвинуться отступами (useMiddleItemCentering), не меняя ширины содержимого
+    resizeObserver.observe(parentsListElement, { box: "border-box" });
     resizeObserver.observe(childrenListElement);
 
     return () => resizeObserver.disconnect();

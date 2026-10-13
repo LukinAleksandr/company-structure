@@ -2,6 +2,7 @@ import type { Ref } from "react";
 import type { Department } from "../../types/department";
 import type { StaffLayout } from "../../types/staffLayout";
 import { canOpenDepartment } from "../../utils/canOpenDepartment";
+import type { CenteringPadding } from "../../utils/getMiddleItemCenteringPadding";
 import { DepartmentSection } from "../DepartmentSection/DepartmentSection";
 import styles from "./DepartmentRow.module.css";
 
@@ -10,6 +11,7 @@ type DepartmentRowProps = {
   staffLayout?: StaffLayout;
   openedDepartmentIds?: number[];
   onToggleDepartment?: (departmentId: number) => void;
+  centeringPadding?: CenteringPadding | null;
   ref?: Ref<HTMLUListElement>;
 };
 
@@ -18,10 +20,11 @@ export function DepartmentRow({
   staffLayout,
   openedDepartmentIds = [],
   onToggleDepartment,
+  centeringPadding,
   ref,
 }: DepartmentRowProps) {
   return (
-    <ul ref={ref} className={styles.row}>
+    <ul ref={ref} className={styles.row} style={centeringPadding ?? undefined}>
       {departments.map((department) => (
         <li key={department.id} className={styles.item}>
           <DepartmentSection

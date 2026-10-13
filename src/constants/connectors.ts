@@ -8,3 +8,5 @@ export const CONNECTOR_FIRST_DROP = 105;
 export const CONNECTOR_SPACING = 55;
 export const CONNECTOR_CORNER_RADIUS = 30;
 export const ARROWHEAD_SIZE = 12;
+// offsetLeft и offsetWidth округлены до целых, поэтому центры, которые должны совпасть, могут разойтись на пиксель
+export const STRAIGHT_CONNECTOR_TOLERANCE = 2;
