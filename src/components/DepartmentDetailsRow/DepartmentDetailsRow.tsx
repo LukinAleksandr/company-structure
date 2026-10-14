@@ -5,17 +5,16 @@ import styles from "./DepartmentDetailsRow.module.css";
 
 type DepartmentDetailsRowProps = {
   departments: Department[];
-  depth: number;
   onCloseDepartment: (departmentId: number) => void;
   ref?: Ref<HTMLUListElement>;
 };
 
-export function DepartmentDetailsRow({ departments, depth, onCloseDepartment, ref }: DepartmentDetailsRowProps) {
+export function DepartmentDetailsRow({ departments, onCloseDepartment, ref }: DepartmentDetailsRowProps) {
   return (
     <ul ref={ref} className={styles.row}>
       {departments.map((department) => (
         <li key={department.id}>
-          <DepartmentDetails department={department} depth={depth} onClose={() => onCloseDepartment(department.id)} />
+          <DepartmentDetails department={department} onClose={() => onCloseDepartment(department.id)} />
         </li>
       ))}
     </ul>

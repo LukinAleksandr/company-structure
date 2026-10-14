@@ -4,3 +4,8 @@
   align-items: center;
   gap: 129px;
 }
+
+/* Начальники и сотрудники в колонке — одной ширины */
+.stretched {
+  align-items: stretch;
+}

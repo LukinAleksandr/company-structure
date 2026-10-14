@@ -1,18 +1,16 @@
 .card {
-  --photo-left: 75px;
-  --photo-size: 345px;
-  --photo-to-text-gap: 48px;
+  --photo-left: 60px;
+  --photo-size: 277px;
+  --photo-to-text-gap: 43px;
 
   position: relative;
-  width: max-content;
-  min-width: 1027px;
-  height: 328px;
-  padding-top: 74.5px;
+  min-width: 822px;
+  height: 262px;
+  padding-top: 65px;
   padding-left: calc(var(--photo-left) + var(--photo-size) + var(--photo-to-text-gap));
-  padding-right: 57px;
-  border-radius: 57px;
-  background-color: #f3f3f33b;
-  box-shadow: 0 12px 40px #00000014;
+  padding-right: 46px;
+  border-radius: 45px;
+  background-color: #ffffff;
   font-family: var(--font-sf-pro);
 }
 
@@ -20,21 +18,22 @@
 .photo {
   position: absolute;
   left: var(--photo-left);
-  bottom: 28px;
+  bottom: 22px;
 }
 
 .statusDot {
   position: absolute;
-  top: 32px;
-  right: 42px;
+  top: 26px;
+  right: 34px;
 }
 
 .position {
   margin: 0;
-  color: #4c4c4cb5;
-  font-size: 32px;
-  font-weight: 510;
+  color: #5f5f5fb5;
+  font-size: 25.43px;
+  font-weight: 400;
   line-height: 1;
+  margin-bottom: 4px;
 }
 
 .name {
@@ -42,41 +41,30 @@
   font: inherit;
 }
 
-.lastName {
-  display: block;
-  white-space: nowrap;
-  color: #323232;
-  font-size: 62px;
-  font-weight: 700;
-  line-height: 1;
-}
-
+.lastName,
 .firstName {
   display: block;
   white-space: nowrap;
-  color: #6f6f6f8a;
-  font-size: 62px;
-  font-weight: 590;
-  line-height: 1;
+  font-size: 49.52px;
+  font-weight: 700;
+  line-height: 0.85;
 }
 
-/* Те же оттенки, что и на светлом фоне, только на основе белого */
-.dark .position {
-  color: #ffffffb5;
+.lastName {
+  color: #303030;
 }
 
-.dark .lastName {
-  color: #ffffff;
+.firstName {
+  color: #959595;
 }
 
-.dark .firstName {
-  color: #ffffff8a;
-}
-
-.status {
+.badges {
   position: absolute;
-  top: 36px;
-  right: 57px;
+  top: 21px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 19px;
 }
 
 .openButton {

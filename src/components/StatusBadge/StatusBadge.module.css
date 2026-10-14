@@ -1,8 +1,12 @@
 .badge {
   font-family: var(--font-montserrat);
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
+}
+
+.small {
+  font-size: 15.96px;
 }
 
 .green {

@@ -1,0 +1,29 @@
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 45px;
+  color: #ffffff;
+  font-family: var(--font-montserrat);
+  font-size: 14.96px;
+  font-weight: 500;
+  line-height: 1;
+  width: 149px;
+  height: 45px;
+}
+
+.founder {
+  background-color: #ff7700;
+}
+
+.manager {
+  background-color: #bb00ff;
+}
+
+.teamLead {
+  background-color: #9ad143;
+}
+
+.subordinate {
+  background-color: #00aeff;
+}
