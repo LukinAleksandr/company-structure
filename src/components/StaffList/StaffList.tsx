@@ -11,24 +11,19 @@ type StaffListProps = {
   // Бекенд не присылает подразделение у работника — берём его из дерева
   departmentName: string;
   layout?: StaffLayout;
-  // Карточки полупрозрачные — сквозь них виден фон подразделения, и на тёмном фоне текст должен быть светлым
-  isOnDarkBackground?: boolean;
 };
 
-export function StaffList({ staff, departmentName, layout = "row", isOnDarkBackground = false }: StaffListProps) {
-  const staffRows = layout === "row" ? splitIntoChunks(staff, MAX_STAFF_PER_ROW) : [staff];
+export function StaffList({ staff, departmentName, layout = "row" }: StaffListProps) {
+  const isColumn = layout === "column";
+  const staffRows = isColumn ? [staff] : splitIntoChunks(staff, MAX_STAFF_PER_ROW);
 
   return (
-    <div className={styles.rows}>
+    <div className={joinClassNames(styles.rows, isColumn && styles.stretched)}>
       {staffRows.map((rowStaff) => (
-        <ul key={rowStaff[0].id} className={joinClassNames(styles.list, layout === "column" && styles.column)}>
+        <ul key={rowStaff[0].id} className={joinClassNames(styles.list, isColumn && styles.column)}>
           {rowStaff.map((employee) => (
             <li key={employee.id}>
-              <ProfileCard
-                employee={employee}
-                departmentName={departmentName}
-                isOnDarkBackground={isOnDarkBackground}
-              />
+              <ProfileCard employee={employee} departmentName={departmentName} />
             </li>
           ))}
         </ul>

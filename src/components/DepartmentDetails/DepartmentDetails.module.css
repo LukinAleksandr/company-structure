@@ -5,11 +5,7 @@
   align-items: center;
   padding: 158px 198px 224px;
   border-radius: 95px;
-  background-color: #f8f8f8;
-}
-
-.contrast {
-  background-color: #eeeeee;
+  background-color: #f4f4f4;
 }
 
 .closeButton {
@@ -19,40 +15,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 96px;
-  height: 96px;
+  width: 60px;
+  height: 60px;
   padding: 0;
   border: none;
   border-radius: 50%;
-  background-color: #ebebeb;
+  background-color: #ff6262;
   cursor: pointer;
 }
 
 .closeButton:hover {
-  background-color: #dcdcdc;
-}
-
-.dark .closeButton {
-  background-color: #ffffff33;
-}
-
-.dark .closeButton:hover {
-  background-color: #ffffff4d;
+  background-color: #f04a4a;
 }
 
 .closeIcon {
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 30px;
   fill: none;
-  stroke: #323232;
+  stroke: #ffffff;
   stroke-width: 2.5px;
   stroke-linecap: round;
 }
 
 .staff:not(:empty) {
   margin-top: 129px;
-}
-
-.dark .closeIcon {
-  stroke: #ffffff;
 }

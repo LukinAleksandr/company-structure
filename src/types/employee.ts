@@ -1,4 +1,5 @@
 export type EmployeeStatus = "green" | "yellow" | "gray";
+export type EmployeeType = "founder" | "manager" | "team_lead" | "subordinate";
 
 // Поля названы как в ответе бекенда (snake_case) — временно, пока нет преобразования ответа в наши типы
 export type Employee = {
@@ -14,7 +15,7 @@ export type Employee = {
   photo: string;
   // green — онлайн, yellow — отошёл, gray — офлайн
   status: EmployeeStatus;
-  type: "founder" | "manager" | "team_lead" | "subordinate";
+  type: EmployeeType;
   position: string;
   city: string;
   department_role: "head" | "staff";

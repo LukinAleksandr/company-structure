@@ -10,8 +10,13 @@ const STATUS_LABELS: Record<EmployeeStatus, string> = {
 
 type StatusBadgeProps = {
   status: EmployeeStatus;
+  size?: "small" | "medium";
 };
 
-export function StatusBadge({ status }: StatusBadgeProps) {
-  return <span className={joinClassNames(styles.badge, styles[status])}>{STATUS_LABELS[status]}</span>;
+export function StatusBadge({ status, size = "medium" }: StatusBadgeProps) {
+  return (
+    <span className={joinClassNames(styles.badge, styles[status], size === "small" && styles.small)}>
+      {STATUS_LABELS[status]}
+    </span>
+  );
 }

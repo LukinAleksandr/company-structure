@@ -7,7 +7,6 @@ import { useTouchNavigation } from "../../hooks/useTouchNavigation";
 import { useViewport } from "../../hooks/useViewport";
 import { useWheelNavigation } from "../../hooks/useWheelNavigation";
 import { getElementCenter } from "../../utils/getElementCenter";
-import { getGridBackgroundStyle } from "../../utils/getGridBackgroundStyle";
 import { joinClassNames } from "../../utils/joinClassNames";
 import { WorkspaceContent } from "../WorkspaceContent/WorkspaceContent";
 import { ZoomControls } from "../ZoomControls/ZoomControls";
@@ -46,7 +45,7 @@ export function Workspace({ children, startViewTargetRef }: WorkspaceProps) {
   );
 
   return (
-    <div ref={workspaceRef} className={workspaceClassNames} style={getGridBackgroundStyle(viewport)} {...dragHandlers}>
+    <div ref={workspaceRef} className={workspaceClassNames} {...dragHandlers}>
       <WorkspaceContent viewport={viewport}>{children}</WorkspaceContent>
 
       <ZoomControls scale={viewport.scale} onZoomIn={zoomIn} onZoomOut={zoomOut} onReset={resetViewport} />

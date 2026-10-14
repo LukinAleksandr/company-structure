@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import { useMiddleItemCentering } from "../../hooks/useMiddleItemCentering";
 import { useOpenedDepartments } from "../../hooks/useOpenedDepartments";
 import type { Department } from "../../types/department";
-import type { StaffLayout } from "../../types/staffLayout";
 import { findIndexesByIds } from "../../utils/findIndexesByIds";
 import { Connectors } from "../Connectors/Connectors";
 import { DepartmentDetailsRow } from "../DepartmentDetailsRow/DepartmentDetailsRow";
@@ -13,13 +12,10 @@ type SubdepartmentsProps = {
   // От этого элемента идут стрелки к ряду подразделений
   parentElement: HTMLElement | null;
   departments: Department[];
-  staffLayout: StaffLayout;
-  // Сколько блоков с деталями вложено друг в друга над этим рядом
-  detailsDepth: number;
 };
 
 // Без обёртки: стрелки и ряды должны лежать прямо в колонке родителя и иметь с ним общий offsetParent
-export function Subdepartments({ parentElement, departments, staffLayout, detailsDepth }: SubdepartmentsProps) {
+export function Subdepartments({ parentElement, departments }: SubdepartmentsProps) {
   // Элементы в state, а не в useRef: стрелки должны перерисоваться, когда элемент появится
   const [rowElement, setRowElement] = useState<HTMLUListElement | null>(null);
   const [detailsRowElement, setDetailsRowElement] = useState<HTMLUListElement | null>(null);
@@ -43,7 +39,6 @@ export function Subdepartments({ parentElement, departments, staffLayout, detail
         ref={setRowElement}
         centeringPadding={rowCenteringPadding}
         departments={departments}
-        staffLayout={staffLayout}
         openedDepartmentIds={openedDepartmentIds}
         onToggleDepartment={toggleDepartment}
       />
@@ -58,7 +53,6 @@ export function Subdepartments({ parentElement, departments, staffLayout, detail
           <DepartmentDetailsRow
             ref={setDetailsRowElement}
             departments={openedDepartments}
-            depth={detailsDepth + 1}
             onCloseDepartment={closeDepartment}
           />
         </>

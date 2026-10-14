@@ -10,8 +10,6 @@ export const WHEEL_ZOOM_SENSITIVITY = 0.01;
 // Ограничение не даёт мыши менять масштаб скачками: щелчок ≈ 20%, pinch остаётся плавным
 export const MAX_WHEEL_ZOOM_DELTA = 20;
 
-export const GRID_STEP = 24;
-
 // Отступы от краёв экрана до схемы при открытии страницы
 export const START_VIEW_TOP_MARGIN = 80;
 export const START_VIEW_SIDE_MARGIN = 40;

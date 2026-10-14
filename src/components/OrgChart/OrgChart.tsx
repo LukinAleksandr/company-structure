@@ -18,12 +18,7 @@ export function OrgChart({ rootDepartment, ref }: OrgChartProps) {
       <DepartmentSection ref={setRootDepartmentElement} department={rootDepartment} shouldShowAllStaff />
 
       {rootDepartment.children && (
-        <Subdepartments
-          parentElement={rootDepartmentElement}
-          departments={rootDepartment.children}
-          staffLayout="row"
-          detailsDepth={0}
-        />
+        <Subdepartments parentElement={rootDepartmentElement} departments={rootDepartment.children} />
       )}
     </div>
   );

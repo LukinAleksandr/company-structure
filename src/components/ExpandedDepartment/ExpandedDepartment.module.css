@@ -1,0 +1,26 @@
+.department {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 86px 67px;
+  border-radius: 76px;
+  background-color: #eaeaea;
+}
+
+.contrast {
+  background-color: #e0e0e0;
+}
+
+.staff:not(:empty) {
+  margin-top: 129px;
+}
+
+.children {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  margin: 129px 0 0;
+  padding: 0;
+  list-style: none;
+}

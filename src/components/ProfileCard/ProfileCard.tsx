@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { Employee } from "../../types/employee";
 import { getEmployeeFullName } from "../../utils/getEmployeeFullName";
-import { joinClassNames } from "../../utils/joinClassNames";
 import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
+import { EmployeeTypeBadge } from "../EmployeeTypeBadge/EmployeeTypeBadge";
 import { ProfileDetails } from "../ProfileDetails/ProfileDetails";
 import { StatusBadge } from "../StatusBadge/StatusBadge";
 import { StatusDot } from "../StatusDot/StatusDot";
@@ -11,15 +11,14 @@ import styles from "./ProfileCard.module.css";
 type ProfileCardProps = {
   employee: Employee;
   departmentName: string;
-  isOnDarkBackground?: boolean;
 };
 
-export function ProfileCard({ employee, departmentName, isOnDarkBackground = false }: ProfileCardProps) {
+export function ProfileCard({ employee, departmentName }: ProfileCardProps) {
   const [isDetailsOpened, setIsDetailsOpened] = useState(false);
   const fullName = getEmployeeFullName(employee);
 
   return (
-    <article className={joinClassNames(styles.card, isOnDarkBackground && styles.dark)}>
+    <article className={styles.card}>
       {/* Невидимая кнопка на всю карточку: так карточка кликабельна и доступна с клавиатуры */}
       <button
         type="button"
@@ -29,7 +28,7 @@ export function ProfileCard({ employee, departmentName, isOnDarkBackground = fal
       />
 
       <div className={styles.photo}>
-        <EmployeePhoto photoUrl={employee.photo} alt={fullName} isOnDarkBackground={isOnDarkBackground} />
+        <EmployeePhoto photoUrl={employee.photo} alt={fullName} />
         <div className={styles.statusDot}>
           <StatusDot status={employee.status} />
         </div>
@@ -41,8 +40,9 @@ export function ProfileCard({ employee, departmentName, isOnDarkBackground = fal
         <span className={styles.firstName}>{employee.name}</span>
       </h2>
 
-      <div className={styles.status}>
-        <StatusBadge status={employee.status} />
+      <div className={styles.badges}>
+        <StatusBadge status={employee.status} size="small" />
+        <EmployeeTypeBadge type={employee.type} />
       </div>
 
       {isDetailsOpened && (
