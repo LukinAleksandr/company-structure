@@ -2,22 +2,16 @@ import { type RefObject, useEffect } from "react";
 import { MAX_WHEEL_ZOOM_DELTA, WHEEL_ZOOM_SENSITIVITY } from "../constants/viewport";
 import { getPointInsideElement } from "../utils/getPointInsideElement";
 import { getWheelDeltaInPixels } from "../utils/getWheelDeltaInPixels";
-import type { MoveBy, ZoomAtPoint } from "./useViewport";
-
-type WheelNavigationActions = {
-  moveBy: MoveBy;
-  zoomAtPoint: ZoomAtPoint;
-};
+import type { ViewportActions } from "./useViewport";
 
 export function useWheelNavigation(
   workspaceRef: RefObject<HTMLElement | null>,
-  { moveBy, zoomAtPoint }: WheelNavigationActions,
+  { moveBy, zoomAtPoint }: ViewportActions,
 ) {
   useEffect(() => {
     const workspaceElement = workspaceRef.current;
     if (!workspaceElement) return;
 
-    // Стрелочная функция после проверки на null — TypeScript помнит, что элемент существует
     const handleWheel = (event: WheelEvent) => {
       event.preventDefault();
 

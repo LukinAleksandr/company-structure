@@ -14,17 +14,10 @@
   font-family: var(--font-sf-pro);
 }
 
-/* Фото выше карточки и специально вылезает за её верхний край */
 .photo {
   position: absolute;
   left: var(--photo-left);
   bottom: 22px;
-}
-
-.statusDot {
-  position: absolute;
-  top: 26px;
-  right: 34px;
 }
 
 .position {
@@ -78,7 +71,6 @@
   cursor: pointer;
 }
 
-/* Профиль крупнее карточки — раскрываем его поверх, с центром в центре карточки */
 .details {
   position: absolute;
   width: max-content;

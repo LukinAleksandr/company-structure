@@ -20,8 +20,8 @@ export function StaffRows({ department, layout, ref }: StaffRowsProps) {
 
   return (
     <div ref={ref} className={joinClassNames(styles.rows, layout === "column" && styles.stretched)}>
-      {heads.length > 0 && <StaffList staff={heads} departmentName={department.name} layout={layout} />}
-      {regularStaff.length > 0 && <StaffList staff={regularStaff} departmentName={department.name} layout={layout} />}
+      {heads.length > 0 && <StaffList staff={heads} layout={layout} />}
+      {regularStaff.length > 0 && <StaffList staff={regularStaff} layout={layout} />}
     </div>
   );
 }

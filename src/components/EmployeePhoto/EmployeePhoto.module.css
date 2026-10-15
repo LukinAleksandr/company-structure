@@ -1,6 +1,10 @@
+.wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
 .photo {
   display: block;
-  flex-shrink: 0;
   width: 277px;
   height: 277px;
   border-radius: 50%;
@@ -8,9 +12,19 @@
   object-fit: cover;
 }
 
-/* Рамка есть только у большого фото в профиле, в карточке сотрудника её нет */
-.large {
+.statusDot {
+  position: absolute;
+  top: 26px;
+  right: 34px;
+}
+
+.large .photo {
   width: 455px;
   height: 455px;
   border: 4px solid #595959;
+}
+
+.large .statusDot {
+  top: 43px;
+  right: 56px;
 }

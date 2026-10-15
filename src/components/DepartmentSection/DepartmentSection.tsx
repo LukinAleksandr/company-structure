@@ -23,12 +23,11 @@ export function DepartmentSection({
   onToggleOpen,
   ref,
 }: DepartmentSectionProps) {
-  // В свёрнутом виде — только начальники, остальные сотрудники видны после открытия
   const heads = getStaffByRole(department, "head");
 
   return (
     <section ref={ref} className={styles.department}>
-      <DepartmentHeader name={department.name} textColor={department.color ?? undefined} />
+      <DepartmentHeader name={department.name} textColor={department.color} />
 
       {shouldShowAllStaff ? (
         <div className={styles.staff}>
@@ -37,7 +36,7 @@ export function DepartmentSection({
       ) : (
         heads.length > 0 && (
           <div className={styles.staff}>
-            <StaffList staff={heads} departmentName={department.name} />
+            <StaffList staff={heads} />
           </div>
         )
       )}

@@ -19,7 +19,7 @@ export function DepartmentDetails({ department, onClose }: DepartmentDetailsProp
     <section className={styles.details}>
       <CloseButton className={styles.closeButton} onClick={onClose} />
 
-      <DepartmentHeader name={department.name} textColor={department.color ?? undefined} />
+      <DepartmentHeader name={department.name} textColor={department.color} />
 
       {/* Без людей стрелкам к подотделам не от чего начинаться — staffElement останется null */}
       <div className={styles.staff}>

@@ -2,13 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Ширина карточки с одним человеком: карточка профиля (1027px) + боковые отступы (2 × 67px) */
   min-width: 1161px;
   padding: 86px 67px 63px;
   border-radius: 95px;
 }
 
-/* Прижимает кнопку к низу карточки, когда карточка вытянута по высоте соседей */
 .openButtonWrapper {
   margin-top: auto;
   padding-top: 63px;

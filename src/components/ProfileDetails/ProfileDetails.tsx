@@ -4,12 +4,10 @@ import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
 import { ProfileActions } from "../ProfileActions/ProfileActions";
 import { ProfileContacts } from "../ProfileContacts/ProfileContacts";
 import { ProfileHeader } from "../ProfileHeader/ProfileHeader";
-import { StatusDot } from "../StatusDot/StatusDot";
 import styles from "./ProfileDetails.module.css";
 
 type ProfileDetailsProps = {
   employee: Employee;
-  departmentName: string;
   onClose: () => void;
 };
 
@@ -20,12 +18,7 @@ export function ProfileDetails({ employee, onClose }: ProfileDetailsProps) {
     <dialog open className={styles.details} aria-label={fullName}>
       <ProfileHeader city={employee.city} status={employee.status} type={employee.type} onClose={onClose} />
       <div className={styles.main}>
-        <div className={styles.photo}>
-          <EmployeePhoto photoUrl={employee.photo} alt={fullName} size="large" />
-          <div className={styles.statusDot}>
-            <StatusDot status={employee.status} size="large" />
-          </div>
-        </div>
+        <EmployeePhoto photoUrl={employee.photo} alt={fullName} status={employee.status} size="large" />
 
         <div className={styles.data}>
           <p className={styles.position}>{employee.position}</p>

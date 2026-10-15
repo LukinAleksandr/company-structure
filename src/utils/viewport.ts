@@ -32,13 +32,12 @@ export function zoomViewportAtPoint(viewport: Viewport, zoomFactor: number, scre
   };
 }
 
-// Масштаб, при котором элемент помещается по ширине экрана. Крупнее 100% не увеличиваем
+// Крупнее 100% не увеличиваем, даже если элемент узкий
 export function getScaleToFitWidth(workspaceWidth: number, elementWidth: number): number {
   const availableWidth = workspaceWidth - START_VIEW_SIDE_MARGIN * 2;
   return clampScale(Math.min(1, availableWidth / elementWidth));
 }
 
-// Вид, при котором элемент стоит по центру по горизонтали и у верхнего края экрана
 export function getViewportShowingAtTopCenter(
   workspaceWidth: number,
   elementCenterX: number,
