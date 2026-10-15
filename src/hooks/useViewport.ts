@@ -7,6 +7,11 @@ import { moveViewport, zoomViewportAtPoint } from "../utils/viewport";
 export type MoveBy = (deltaX: number, deltaY: number) => void;
 export type ZoomAtPoint = (zoomFactor: number, screenPoint: Point) => void;
 
+export type ViewportActions = {
+  moveBy: MoveBy;
+  zoomAtPoint: ZoomAtPoint;
+};
+
 export function useViewport() {
   const [viewport, setViewport] = useState<Viewport>(INITIAL_VIEWPORT);
   // Куда возвращает кнопка сброса масштаба

@@ -5,15 +5,13 @@ import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
 import { EmployeeTypeBadge } from "../EmployeeTypeBadge/EmployeeTypeBadge";
 import { ProfileDetails } from "../ProfileDetails/ProfileDetails";
 import { StatusBadge } from "../StatusBadge/StatusBadge";
-import { StatusDot } from "../StatusDot/StatusDot";
 import styles from "./ProfileCard.module.css";
 
 type ProfileCardProps = {
   employee: Employee;
-  departmentName: string;
 };
 
-export function ProfileCard({ employee, departmentName }: ProfileCardProps) {
+export function ProfileCard({ employee }: ProfileCardProps) {
   const [isDetailsOpened, setIsDetailsOpened] = useState(false);
   const fullName = getEmployeeFullName(employee);
 
@@ -28,10 +26,7 @@ export function ProfileCard({ employee, departmentName }: ProfileCardProps) {
       />
 
       <div className={styles.photo}>
-        <EmployeePhoto photoUrl={employee.photo} alt={fullName} />
-        <div className={styles.statusDot}>
-          <StatusDot status={employee.status} />
-        </div>
+        <EmployeePhoto photoUrl={employee.photo} alt={fullName} status={employee.status} />
       </div>
 
       <p className={styles.position}>{employee.position}</p>
@@ -47,11 +42,7 @@ export function ProfileCard({ employee, departmentName }: ProfileCardProps) {
 
       {isDetailsOpened && (
         <div className={styles.details}>
-          <ProfileDetails
-            employee={employee}
-            departmentName={departmentName}
-            onClose={() => setIsDetailsOpened(false)}
-          />
+          <ProfileDetails employee={employee} onClose={() => setIsDetailsOpened(false)} />
         </div>
       )}
     </article>

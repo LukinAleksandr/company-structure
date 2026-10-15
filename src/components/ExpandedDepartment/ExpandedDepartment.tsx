@@ -18,7 +18,7 @@ export function ExpandedDepartment({ department, nestingLevel }: ExpandedDepartm
 
   return (
     <section className={joinClassNames(styles.department, isEvenLevel && styles.contrast)}>
-      <DepartmentHeader name={department.name} textColor={department.color ?? undefined} />
+      <DepartmentHeader name={department.name} textColor={department.color} />
 
       <div className={styles.staff}>
         <StaffRows department={department} layout="column" />

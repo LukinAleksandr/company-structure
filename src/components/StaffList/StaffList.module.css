@@ -1,4 +1,3 @@
-/* Фото вылезает за верхний край карточки — расстояние между рядами с запасом под него */
 .rows {
   display: flex;
   flex-direction: column;
@@ -14,7 +13,6 @@
   list-style: none;
 }
 
-/* В колонке все карточки тянутся до ширины самой широкой */
 .stretched {
   align-items: stretch;
 }

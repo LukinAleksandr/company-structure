@@ -9,12 +9,10 @@ import styles from "./StaffList.module.css";
 
 type StaffListProps = {
   staff: Employee[];
-  // Бекенд не присылает подразделение у работника — берём его из дерева
-  departmentName: string;
   layout?: StaffLayout;
 };
 
-export function StaffList({ staff, departmentName, layout = "row" }: StaffListProps) {
+export function StaffList({ staff, layout = "row" }: StaffListProps) {
   const isColumn = layout === "column";
   const sortedStaff = sortStaffByType(staff);
   const staffRows = isColumn ? [sortedStaff] : splitIntoChunks(sortedStaff, MAX_STAFF_PER_ROW);
@@ -25,7 +23,7 @@ export function StaffList({ staff, departmentName, layout = "row" }: StaffListPr
         <ul key={rowStaff[0].id} className={joinClassNames(styles.list, isColumn && styles.column)}>
           {rowStaff.map((employee) => (
             <li key={employee.id}>
-              <ProfileCard employee={employee} departmentName={departmentName} />
+              <ProfileCard employee={employee} />
             </li>
           ))}
         </ul>

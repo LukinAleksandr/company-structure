@@ -11,6 +11,13 @@ type ProfileActionsProps = {
 
 export function ProfileActions({ telegram, email }: ProfileActionsProps) {
   const telegramUrl = getTelegramUrl(telegram);
+  const telegramClassName = joinClassNames(styles.action, styles.telegram);
+  const telegramContent = (
+    <>
+      <img className={styles.icon} src={telegramIconUrl} alt="" />
+      <span className={styles.label}>Написати в Telegram</span>
+    </>
+  );
 
   return (
     <div className={styles.actions}>
@@ -19,20 +26,13 @@ export function ProfileActions({ telegram, email }: ProfileActionsProps) {
         <span className={styles.label}>Написати email</span>
       </a>
       {telegramUrl ? (
-        <a
-          className={joinClassNames(styles.action, styles.telegram)}
-          href={telegramUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img className={styles.icon} src={telegramIconUrl} alt="" />
-          <span className={styles.label}>Написати в Telegram</span>
+        <a className={telegramClassName} href={telegramUrl} target="_blank" rel="noreferrer">
+          {telegramContent}
         </a>
       ) : (
         // У ссылки нет disabled, поэтому без Telegram показываем выключенную кнопку того же вида
-        <button type="button" className={joinClassNames(styles.action, styles.telegram)} disabled>
-          <img className={styles.icon} src={telegramIconUrl} alt="" />
-          <span className={styles.label}>Написати в Telegram</span>
+        <button type="button" className={telegramClassName} disabled>
+          {telegramContent}
         </button>
       )}
     </div>

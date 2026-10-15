@@ -2,16 +2,11 @@ import { type RefObject, useEffect } from "react";
 import type { Point } from "../types/geometry";
 import { getDistance, getMidpoint } from "../utils/geometry";
 import { getPointInsideElement } from "../utils/getPointInsideElement";
-import type { MoveBy, ZoomAtPoint } from "./useViewport";
-
-type TouchNavigationActions = {
-  moveBy: MoveBy;
-  zoomAtPoint: ZoomAtPoint;
-};
+import type { ViewportActions } from "./useViewport";
 
 export function useTouchNavigation(
   workspaceRef: RefObject<HTMLElement | null>,
-  { moveBy, zoomAtPoint }: TouchNavigationActions,
+  { moveBy, zoomAtPoint }: ViewportActions,
 ) {
   useEffect(() => {
     const workspaceElement = workspaceRef.current;

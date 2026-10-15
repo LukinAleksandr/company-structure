@@ -2,8 +2,7 @@ import styles from "./DepartmentHeader.module.css";
 
 type DepartmentHeaderProps = {
   name: string;
-  // Без него — цвет из стилей
-  textColor?: string;
+  textColor: string | null;
 };
 
 export function DepartmentHeader({ name, textColor }: DepartmentHeaderProps) {

@@ -1,7 +1,7 @@
 import { CONNECTOR_SPACING } from "../constants/connectors";
 import { getPairedConnectorPaths } from "./getPairedConnectorPaths";
 
-// Стрелки от одного родителя ко всем детям. Начала стрелок разнесены на CONNECTOR_SPACING вокруг центра родителя
+// Начала стрелок разнесены на CONNECTOR_SPACING вокруг центра родителя, чтобы не сливаться в одну линию
 export function getConnectorPaths(parentCenterX: number, childCentersX: number[]): string[] {
   const lastIndex = childCentersX.length - 1;
 
