@@ -19,10 +19,13 @@ const EMPLOYEE_TYPE_CLASS_NAMES: Record<EmployeeType, string | undefined> = {
 
 type EmployeeTypeBadgeProps = {
   type: EmployeeType;
+  size?: "medium" | "large";
 };
 
-export function EmployeeTypeBadge({ type }: EmployeeTypeBadgeProps) {
+export function EmployeeTypeBadge({ type, size = "medium" }: EmployeeTypeBadgeProps) {
   return (
-    <span className={joinClassNames(styles.badge, EMPLOYEE_TYPE_CLASS_NAMES[type])}>{EMPLOYEE_TYPE_LABELS[type]}</span>
+    <span className={joinClassNames(styles.badge, EMPLOYEE_TYPE_CLASS_NAMES[type], size === "large" && styles.large)}>
+      {EMPLOYEE_TYPE_LABELS[type]}
+    </span>
   );
 }

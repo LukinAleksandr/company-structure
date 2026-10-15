@@ -13,11 +13,10 @@
   gap: 16px;
   color: #4c4c4cb5;
   font-size: 30.72px;
-  font-weight: 510;
+  font-weight: 500;
   line-height: 1;
 }
 
 .icon {
-  width: 28px;
-  height: 28px;
+  flex-shrink: 0;
 }

@@ -1,16 +1,12 @@
 .header {
+  position: absolute;
+  top: 37px;
+  left: 42px;
+  right: 42px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-}
-
-.department {
-  margin: 0;
-  color: #4c4c4cb5;
-  font-size: 30px;
-  font-weight: 510;
-  line-height: 1;
 }
 
 .locationAndStatus {
@@ -18,7 +14,7 @@
   align-items: center;
   gap: 32px;
   height: 85px;
-  padding: 0 44px 0 40px;
+  padding: 0 44px 0 32px;
   border-radius: 999px;
   background-color: #ebebeb;
 }
@@ -34,7 +30,7 @@
   gap: 16px;
   color: #4c4c4cb5;
   font-size: 25px;
-  font-weight: 510;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -42,13 +38,14 @@
   gap: 24px;
 }
 
-.locationIcon {
-  width: 32px;
-  height: 32px;
-}
-
 .divider {
   width: 2px;
   height: 36px;
   background-color: #cccccc;
+}
+
+.typeAndClose {
+  display: flex;
+  align-items: center;
+  gap: 22px;
 }
