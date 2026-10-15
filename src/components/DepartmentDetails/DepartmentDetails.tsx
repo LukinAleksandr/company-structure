@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Department } from "../../types/department";
+import { CloseButton } from "../CloseButton/CloseButton";
 import { DepartmentHeader } from "../DepartmentHeader/DepartmentHeader";
 import { ExpandedSubdepartments } from "../ExpandedSubdepartments/ExpandedSubdepartments";
 import { StaffRows } from "../StaffRows/StaffRows";
@@ -16,11 +17,7 @@ export function DepartmentDetails({ department, onClose }: DepartmentDetailsProp
 
   return (
     <section className={styles.details}>
-      <button type="button" className={styles.closeButton} onClick={onClose} aria-label="Закрити">
-        <svg className={styles.closeIcon} viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 6L18 18M18 6L6 18" />
-        </svg>
-      </button>
+      <CloseButton className={styles.closeButton} onClick={onClose} />
 
       <DepartmentHeader name={department.name} textColor={department.color ?? undefined} />
 

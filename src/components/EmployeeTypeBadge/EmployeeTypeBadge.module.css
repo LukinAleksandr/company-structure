@@ -12,6 +12,12 @@
   height: 45px;
 }
 
+.large {
+  width: 284px;
+  height: 86px;
+  font-size: 30px;
+}
+
 .founder {
   background-color: #ff7700;
 }

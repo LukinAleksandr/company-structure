@@ -1,0 +1,30 @@
+/* Красный круг и крестик нарисованы в самой иконке, поэтому кнопка только задаёт размер */
+.button {
+  display: block;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.button:hover {
+  filter: brightness(0.92);
+}
+
+.medium {
+  width: 60px;
+  height: 60px;
+}
+
+.large {
+  width: 76px;
+  height: 76px;
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

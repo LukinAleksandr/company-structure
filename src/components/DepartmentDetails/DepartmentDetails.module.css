@@ -12,29 +12,6 @@
   position: absolute;
   top: 64px;
   right: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background-color: #ff6262;
-  cursor: pointer;
-}
-
-.closeButton:hover {
-  background-color: #f04a4a;
-}
-
-.closeIcon {
-  width: 30px;
-  height: 30px;
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2.5px;
-  stroke-linecap: round;
 }
 
 .staff:not(:empty) {

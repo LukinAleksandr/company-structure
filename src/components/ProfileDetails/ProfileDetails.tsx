@@ -1,10 +1,10 @@
-import closeIconUrl from "../../assets/icons/close.svg";
 import type { Employee } from "../../types/employee";
 import { getEmployeeFullName } from "../../utils/getEmployeeFullName";
 import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
 import { ProfileActions } from "../ProfileActions/ProfileActions";
 import { ProfileContacts } from "../ProfileContacts/ProfileContacts";
 import { ProfileHeader } from "../ProfileHeader/ProfileHeader";
+import { StatusDot } from "../StatusDot/StatusDot";
 import styles from "./ProfileDetails.module.css";
 
 type ProfileDetailsProps = {
@@ -13,23 +13,24 @@ type ProfileDetailsProps = {
   onClose: () => void;
 };
 
-export function ProfileDetails({ employee, departmentName, onClose }: ProfileDetailsProps) {
+export function ProfileDetails({ employee, onClose }: ProfileDetailsProps) {
+  const fullName = getEmployeeFullName(employee);
+
   return (
-    <dialog open className={styles.details} aria-label={getEmployeeFullName(employee)}>
-      <button type="button" className={styles.closeButton} onClick={onClose} aria-label="Закрити">
-        <img className={styles.closeIcon} src={closeIconUrl} alt="" />
-      </button>
-
-      <ProfileHeader departmentName={departmentName} city={employee.city} status={employee.status} />
-
+    <dialog open className={styles.details} aria-label={fullName}>
+      <ProfileHeader city={employee.city} status={employee.status} type={employee.type} onClose={onClose} />
       <div className={styles.main}>
-        <EmployeePhoto photoUrl={employee.photo} alt={getEmployeeFullName(employee)} size="large" />
+        <div className={styles.photo}>
+          <EmployeePhoto photoUrl={employee.photo} alt={fullName} size="large" />
+          <div className={styles.statusDot}>
+            <StatusDot status={employee.status} size="large" />
+          </div>
+        </div>
 
-        <div>
+        <div className={styles.data}>
           <p className={styles.position}>{employee.position}</p>
           <h2 className={styles.name}>
-            <span className={styles.lastName}>{employee.surname}</span>
-            <span className={styles.firstName}>{employee.name}</span>
+            {employee.surname} {employee.name}
           </h2>
           <hr className={styles.divider} />
           <ProfileContacts phone={employee.phone} email={employee.email} />

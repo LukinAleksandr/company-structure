@@ -6,7 +6,7 @@
   position: relative;
   min-width: 822px;
   height: 262px;
-  padding-top: 65px;
+  padding-top: 68px;
   padding-left: calc(var(--photo-left) + var(--photo-size) + var(--photo-to-text-gap));
   padding-right: 46px;
   border-radius: 45px;

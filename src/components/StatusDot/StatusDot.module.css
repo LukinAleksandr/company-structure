@@ -3,10 +3,21 @@
  * ::before — свечение, ::after — сам кружок: псевдоэлементы рисуются по порядку, поэтому кружок оказывается сверху.
  */
 .dot {
+  --dot-size: 27px;
+  --glow-size: 49px;
+  --glow-blur: 14.82px;
+
   position: relative;
   display: block;
-  width: 27px;
-  height: 27px;
+  width: var(--dot-size);
+  height: var(--dot-size);
+}
+
+/* Большой кружок на фото в профиле — пропорционально фото 455px против 277px в карточке */
+.large {
+  --dot-size: 44px;
+  --glow-size: 80px;
+  --glow-blur: 24px;
 }
 
 .dot::before,
@@ -20,10 +31,10 @@
 }
 
 .dot::before {
-  width: 49px;
-  height: 49px;
+  width: var(--glow-size);
+  height: var(--glow-size);
   background-color: var(--status-glow-color);
-  filter: blur(14.82px);
+  filter: blur(var(--glow-blur));
 }
 
 .dot::after {

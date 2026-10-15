@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"><title>Закрити</title><path d="M7 7l10 10M17 7 7 17"/></svg>
+<svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Закрити</title>
+<circle cx="38" cy="38" r="38" fill="#FF6262"/>
+<rect x="48.9922" y="22.0625" width="7.08487" height="38.0812" rx="3.54244" transform="rotate(45 48.9922 22.0625)" fill="white"/>
+<rect x="54" y="48.9922" width="7.08487" height="38.0812" rx="3.54244" transform="rotate(135 54 48.9922)" fill="white"/>
+</svg>
