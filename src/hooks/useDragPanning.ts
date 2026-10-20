@@ -4,6 +4,11 @@ import type { MoveBy } from "./useViewport";
 
 const LEFT_MOUSE_BUTTON = 0;
 const MIDDLE_MOUSE_BUTTON = 1;
+const INTERACTIVE_ELEMENTS_SELECTOR = "button, a, input, select, textarea";
+
+function isInteractiveElement(target: EventTarget): boolean {
+  return target instanceof Element && target.closest(INTERACTIVE_ELEMENTS_SELECTOR) !== null;
+}
 
 export function useDragPanning(moveBy: MoveBy, isSpacePressed: boolean) {
   const [isDragging, setIsDragging] = useState(false);
@@ -15,9 +20,10 @@ export function useDragPanning(moveBy: MoveBy, isSpacePressed: boolean) {
 
     const isMiddleButton = event.button === MIDDLE_MOUSE_BUTTON;
     const isLeftButton = event.button === LEFT_MOUSE_BUTTON;
-    const isEmptyAreaClicked = event.target === event.currentTarget;
+    // Тянуть можно с любого места полотна, кроме кнопок и ссылок — иначе по ним не кликнуть
+    const isInteractiveElementClicked = isInteractiveElement(event.target);
 
-    return isMiddleButton || (isLeftButton && (isSpacePressed || isEmptyAreaClicked));
+    return isMiddleButton || (isLeftButton && (isSpacePressed || !isInteractiveElementClicked));
   }
 
   function handlePointerDown(event: PointerEvent<HTMLElement>) {
