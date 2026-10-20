@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { texts } from "../../texts/texts";
 import type { Employee } from "../../types/employee";
 import { getEmployeeFullName } from "../../utils/getEmployeeFullName";
 import { EmployeePhoto } from "../EmployeePhoto/EmployeePhoto";
@@ -22,7 +23,7 @@ export function ProfileCard({ employee }: ProfileCardProps) {
         type="button"
         className={styles.openButton}
         onClick={() => setIsDetailsOpened(true)}
-        aria-label={`Відкрити профіль: ${fullName}`}
+        aria-label={texts.openProfile(fullName)}
       />
 
       <div className={styles.photo}>

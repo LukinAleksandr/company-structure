@@ -1,4 +1,5 @@
 import locationIconUrl from "../../assets/icons/location.svg";
+import { texts } from "../../texts/texts";
 import type { EmployeeStatus, EmployeeType } from "../../types/employee";
 import { CloseButton } from "../CloseButton/CloseButton";
 import { EmployeeTypeBadge } from "../EmployeeTypeBadge/EmployeeTypeBadge";
@@ -19,7 +20,8 @@ export function ProfileHeader({ city, status, type, onClose }: ProfileHeaderProp
       <div className={styles.locationAndStatus}>
         <p className={styles.city}>
           <img src={locationIconUrl} alt="" />
-          м.{city}
+          {texts.cityPrefix}
+          {city}
         </p>
         <span className={styles.divider} aria-hidden="true" />
         <p className={styles.status}>

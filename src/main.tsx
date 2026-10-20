@@ -2,6 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { pageLanguage, texts } from "./texts/texts";
+
+document.documentElement.lang = pageLanguage;
+document.title = texts.pageTitle;
 
 const rootElement = document.getElementById("root");
 

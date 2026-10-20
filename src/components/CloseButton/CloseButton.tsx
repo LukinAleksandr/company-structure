@@ -1,4 +1,5 @@
 import closeIconUrl from "../../assets/icons/close.svg";
+import { texts } from "../../texts/texts";
 import { joinClassNames } from "../../utils/joinClassNames";
 import styles from "./CloseButton.module.css";
 
@@ -14,7 +15,7 @@ export function CloseButton({ onClick, size = "medium", className }: CloseButton
       type="button"
       className={joinClassNames(styles.button, styles[size], className)}
       onClick={onClick}
-      aria-label="Закрити"
+      aria-label={texts.close}
     >
       <img className={styles.icon} src={closeIconUrl} alt="" />
     </button>
