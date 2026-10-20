@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Сайт публикуется на GitHub Pages по адресу https://lukinaleksandr.github.io/company-structure/
-  base: "/company-structure/",
+  // Относительные пути — сборка работает из любой папки.
+  // Адрес страницы должен заканчиваться слешем, иначе ./assets будут искаться в корне сайта.
+  base: "./",
 });
