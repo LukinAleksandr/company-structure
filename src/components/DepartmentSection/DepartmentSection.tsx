@@ -1,4 +1,5 @@
 import type { Ref } from "react";
+import { texts } from "../../texts/texts";
 import type { Department } from "../../types/department";
 import { getStaffByRole } from "../../utils/getStaffByRole";
 import { DepartmentHeader } from "../DepartmentHeader/DepartmentHeader";
@@ -44,7 +45,7 @@ export function DepartmentSection({
       {onToggleOpen && (
         <div className={styles.openButtonWrapper}>
           <button type="button" className={styles.openButton} onClick={onToggleOpen}>
-            {isOpened ? "Закрити" : "Відкрити"}
+            {isOpened ? texts.close : texts.open}
           </button>
         </div>
       )}

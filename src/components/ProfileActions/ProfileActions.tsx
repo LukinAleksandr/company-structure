@@ -1,5 +1,6 @@
 import mailIconUrl from "../../assets/icons/mail-dark.svg";
 import telegramIconUrl from "../../assets/icons/telegram.svg";
+import { texts } from "../../texts/texts";
 import { getTelegramUrl } from "../../utils/getTelegramUrl";
 import { joinClassNames } from "../../utils/joinClassNames";
 import styles from "./ProfileActions.module.css";
@@ -15,7 +16,7 @@ export function ProfileActions({ telegram, email }: ProfileActionsProps) {
   const telegramContent = (
     <>
       <img className={styles.icon} src={telegramIconUrl} alt="" />
-      <span className={styles.label}>Написати в Telegram</span>
+      <span className={styles.label}>{texts.writeToTelegram}</span>
     </>
   );
 
@@ -23,7 +24,7 @@ export function ProfileActions({ telegram, email }: ProfileActionsProps) {
     <div className={styles.actions}>
       <a className={joinClassNames(styles.action, styles.email)} href={`mailto:${email}`}>
         <img className={styles.icon} src={mailIconUrl} alt="" />
-        <span className={styles.label}>Написати email</span>
+        <span className={styles.label}>{texts.writeEmail}</span>
       </a>
       {telegramUrl ? (
         <a className={telegramClassName} href={telegramUrl} target="_blank" rel="noreferrer">

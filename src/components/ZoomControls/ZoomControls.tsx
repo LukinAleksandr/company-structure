@@ -1,3 +1,4 @@
+import { texts } from "../../texts/texts";
 import styles from "./ZoomControls.module.css";
 
 type ZoomControlsProps = {
@@ -12,13 +13,13 @@ export function ZoomControls({ scale, onZoomIn, onZoomOut, onReset }: ZoomContro
 
   return (
     <div className={styles.panel}>
-      <button type="button" className={styles.button} onClick={onZoomOut} title="Уменьшить">
+      <button type="button" className={styles.button} onClick={onZoomOut} title={texts.zoomOut}>
         −
       </button>
-      <button type="button" className={styles.scaleValue} onClick={onReset} title="Сбросить масштаб">
+      <button type="button" className={styles.scaleValue} onClick={onReset} title={texts.resetZoom}>
         {scaleInPercent}%
       </button>
-      <button type="button" className={styles.button} onClick={onZoomIn} title="Увеличить">
+      <button type="button" className={styles.button} onClick={onZoomIn} title={texts.zoomIn}>
         +
       </button>
     </div>
