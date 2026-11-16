@@ -2,20 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 45px;
+  border-radius: 999px;
   color: #ffffff;
   font-family: var(--font-montserrat);
-  font-size: 14.96px;
+  font-size: 20.77px;
   font-weight: 500;
   line-height: 1;
-  width: 149px;
-  height: 45px;
+  width: 194px;
+  height: 58.5px;
 }
 
 .large {
   width: 284px;
   height: 86px;
-  font-size: 30px;
+  font-size: 30.5px;
 }
 
 .founder {

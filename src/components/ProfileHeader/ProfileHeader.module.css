@@ -2,7 +2,7 @@
   position: absolute;
   top: 37px;
   left: 42px;
-  right: 42px;
+  right: 45px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,9 +12,9 @@
 .locationAndStatus {
   display: flex;
   align-items: center;
-  gap: 32px;
-  height: 85px;
-  padding: 0 44px 0 32px;
+  gap: 36px;
+  height: 86px;
+  padding: 0 40px 0 34px;
   border-radius: 999px;
   background-color: #ebebeb;
 }
@@ -27,20 +27,21 @@
 }
 
 .city {
-  gap: 16px;
-  color: #4c4c4cb5;
-  font-size: 25px;
+  gap: 20px;
+  color: #787878;
+  font-family: var(--font-montserrat);
+  font-size: 26.24px;
   font-weight: 500;
   line-height: 1;
 }
 
 .status {
-  gap: 24px;
+  gap: 35px;
 }
 
 .divider {
   width: 2px;
-  height: 36px;
+  height: 39px;
   background-color: #cccccc;
 }
 

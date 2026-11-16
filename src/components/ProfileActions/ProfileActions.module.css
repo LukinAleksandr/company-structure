@@ -1,14 +1,21 @@
 .actions {
   display: flex;
-  gap: 28px;
+  gap: 9px;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 89px;
+  background-color: #ebebeb;
 }
 
 .action {
+  position: relative;
   display: flex;
   align-items: center;
-  width: 522px;
+  justify-content: center;
+  width: 352px;
   height: 144px;
-  padding: 0 43px;
+  padding: 0 0 0 70px;
+  border: none;
   border-radius: 89px;
   color: #4e4e4e;
   font-family: var(--font-montserrat);
@@ -16,7 +23,7 @@
   font-weight: 500;
   line-height: 1;
   text-decoration: none;
-  border: none;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -38,11 +45,13 @@
   background-color: #44d9fb;
 }
 
-.icon {
-  flex-shrink: 0;
+.profile {
+  background-color: #e4e4e4;
 }
 
-.label {
-  flex: 1;
-  text-align: center;
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 58px;
+  transform: translateY(-50%);
 }

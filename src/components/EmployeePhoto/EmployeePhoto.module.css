@@ -9,6 +9,7 @@
   height: 277px;
   border-radius: 50%;
   background-color: #d9d9d9;
+  box-shadow: 0 0 0 2.4px #ffffff;
   object-fit: cover;
 }
 
@@ -21,10 +22,10 @@
 .large .photo {
   width: 455px;
   height: 455px;
-  border: 4px solid #595959;
+  box-shadow: 0 0 0 4px #595959;
 }
 
 .large .statusDot {
-  top: 43px;
-  right: 56px;
+  top: 47px;
+  right: 52px;
 }

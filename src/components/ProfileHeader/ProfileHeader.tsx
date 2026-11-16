@@ -26,7 +26,7 @@ export function ProfileHeader({ city, status, type, onClose }: ProfileHeaderProp
         <span className={styles.divider} aria-hidden="true" />
         <p className={styles.status}>
           <StatusBadge status={status} />
-          <StatusDot status={status} />
+          <StatusDot status={status} size="small" />
         </p>
       </div>
 
