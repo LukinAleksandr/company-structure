@@ -1,7 +1,7 @@
 .dot {
-  --dot-size: 27px;
-  --glow-size: 49px;
-  --glow-blur: 14.82px;
+  --dot-size: 22px;
+  --glow-size: 39px;
+  --glow-blur: 4.74px;
 
   position: relative;
   display: block;
@@ -9,10 +9,14 @@
   height: var(--dot-size);
 }
 
+.small {
+  --dot-size: 17px;
+  --glow-size: 29px;
+}
+
 .large {
-  --dot-size: 44px;
-  --glow-size: 80px;
-  --glow-blur: 24px;
+  --dot-size: 34px;
+  --glow-size: 61px;
 }
 
 .dot::before,
@@ -39,7 +43,7 @@
 }
 
 .green {
-  --status-color: #a1d73a;
+  --status-color: #d2f524;
   --status-glow-color: #a1d73ac4;
 }
 

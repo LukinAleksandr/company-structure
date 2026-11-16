@@ -9,8 +9,8 @@ export type Texts = {
   open: string;
   close: string;
   openProfile: (fullName: string) => string;
-  writeToTelegram: string;
-  writeEmail: string;
+  telegram: string;
+  profile: string;
   phone: string;
   email: string;
   // В украинском перед городом пишут «м.» (місто), в других языках префикса нет

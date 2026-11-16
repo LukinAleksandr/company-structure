@@ -24,7 +24,7 @@
   margin: 0;
   color: #5f5f5fb5;
   font-size: 25.43px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
   margin-bottom: 4px;
 }
@@ -53,11 +53,11 @@
 
 .badges {
   position: absolute;
-  top: 21px;
-  right: 24px;
+  top: 12px;
+  right: 13px;
   display: flex;
   align-items: center;
-  gap: 19px;
+  gap: 25px;
 }
 
 .openButton {

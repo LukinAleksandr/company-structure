@@ -31,7 +31,7 @@ export function ProfileDetails({ employee, onClose }: ProfileDetailsProps) {
       </div>
 
       <div className={styles.actions}>
-        <ProfileActions telegram={employee.telegram} email={employee.email} />
+        <ProfileActions employeeId={employee.id} telegram={employee.telegram} email={employee.email} />
       </div>
     </dialog>
   );

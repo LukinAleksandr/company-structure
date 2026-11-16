@@ -1,7 +1,7 @@
 .contacts {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -10,13 +10,16 @@
 .contact {
   display: flex;
   align-items: center;
-  gap: 16px;
-  color: #4c4c4cb5;
-  font-size: 30.72px;
+  gap: 17px;
+  color: #787878;
+  font-size: 35.21px;
   font-weight: 500;
   line-height: 1;
 }
 
 .icon {
   flex-shrink: 0;
+  width: 33px;
+  object-fit: none;
+  object-position: left center;
 }
