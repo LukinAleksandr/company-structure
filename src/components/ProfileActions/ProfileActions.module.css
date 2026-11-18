@@ -38,20 +38,23 @@
 }
 
 .email {
+  --icon-left: 61px;
   background-color: #afea2f;
 }
 
 .telegram {
+  --icon-left: 55px;
   background-color: #44d9fb;
 }
 
 .profile {
+  --icon-left: 56px;
   background-color: #e4e4e4;
 }
 
 .icon {
   position: absolute;
   top: 50%;
-  left: 58px;
+  left: var(--icon-left);
   transform: translateY(-50%);
 }
