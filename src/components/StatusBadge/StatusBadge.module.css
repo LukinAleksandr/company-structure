@@ -5,16 +5,8 @@
   line-height: 1;
 }
 
-.small {
-  font-size: 20.77px;
-}
-
 .green {
   color: #8bb831;
-}
-
-.small.green {
-  color: #a1d73a;
 }
 
 .yellow {
@@ -23,4 +15,30 @@
 
 .gray {
   color: #a6a6a6;
+}
+
+.pill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 132px;
+  height: 67px;
+  padding: 0 25px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pill.green {
+  background-color: #a1d73a;
+}
+
+.pill.yellow {
+  background-color: #f5c52e;
+}
+
+.pill.gray {
+  background-color: #a6a6a6;
 }

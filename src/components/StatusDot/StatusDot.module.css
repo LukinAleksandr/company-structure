@@ -1,7 +1,7 @@
 .dot {
-  --dot-size: 22px;
-  --glow-size: 39px;
-  --glow-blur: 4.74px;
+  --dot-size: 23px;
+  --glow-size: 42px;
+  --glow-blur: 6.3px;
 
   position: relative;
   display: block;
@@ -12,11 +12,13 @@
 .small {
   --dot-size: 17px;
   --glow-size: 29px;
+  --glow-blur: 4.74px;
 }
 
 .large {
   --dot-size: 34px;
   --glow-size: 61px;
+  --glow-blur: 4.74px;
 }
 
 .dot::before,

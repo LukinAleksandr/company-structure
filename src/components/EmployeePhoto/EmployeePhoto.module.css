@@ -5,18 +5,18 @@
 
 .photo {
   display: block;
-  width: 277px;
-  height: 277px;
+  width: 295px;
+  height: 295px;
   border-radius: 50%;
   background-color: #d9d9d9;
-  box-shadow: 0 0 0 2.4px #ffffff;
+  box-shadow: 0 0 0 2.6px #ffffff;
   object-fit: cover;
 }
 
 .statusDot {
   position: absolute;
-  top: 26px;
-  right: 34px;
+  top: 27px;
+  right: 36px;
 }
 
 .large .photo {

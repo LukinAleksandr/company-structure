@@ -21,7 +21,7 @@ export function StaffRows({ department, layout, ref }: StaffRowsProps) {
   return (
     <div ref={ref} className={joinClassNames(styles.rows, layout === "column" && styles.stretched)}>
       {heads.length > 0 && <StaffList staff={heads} layout={layout} />}
-      {regularStaff.length > 0 && <StaffList staff={regularStaff} layout={layout} />}
+      {regularStaff.length > 0 && <StaffList staff={regularStaff} layout={layout} isTopList={heads.length === 0} />}
     </div>
   );
 }

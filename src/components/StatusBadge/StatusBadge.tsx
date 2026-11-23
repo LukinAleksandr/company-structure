@@ -5,12 +5,12 @@ import styles from "./StatusBadge.module.css";
 
 type StatusBadgeProps = {
   status: EmployeeStatus;
-  size?: "small" | "medium";
+  variant?: "text" | "pill";
 };
 
-export function StatusBadge({ status, size = "medium" }: StatusBadgeProps) {
+export function StatusBadge({ status, variant = "text" }: StatusBadgeProps) {
   return (
-    <span className={joinClassNames(styles.badge, styles[status], size === "small" && styles.small)}>
+    <span className={joinClassNames(styles.badge, styles[status], variant === "pill" && styles.pill)}>
       {texts.employeeStatuses[status]}
     </span>
   );
