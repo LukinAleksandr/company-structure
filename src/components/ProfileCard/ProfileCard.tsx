@@ -30,15 +30,17 @@ export function ProfileCard({ employee }: ProfileCardProps) {
         <EmployeePhoto photoUrl={employee.photo} alt={fullName} status={employee.status} />
       </div>
 
-      <p className={styles.position}>{employee.position}</p>
-      <h2 className={styles.name}>
-        <span className={styles.lastName}>{employee.surname}</span>
-        <span className={styles.firstName}>{employee.name}</span>
-      </h2>
+      <div className={styles.info}>
+        <p className={styles.position}>{employee.position}</p>
+        <h2 className={styles.name}>
+          <span className={styles.lastName}>{employee.surname}</span>
+          <span className={styles.firstName}>{employee.name}</span>
+        </h2>
+      </div>
 
       <div className={styles.badges}>
-        <StatusBadge status={employee.status} size="small" />
         <EmployeeTypeBadge type={employee.type} />
+        <StatusBadge status={employee.status} variant="pill" />
       </div>
 
       {isDetailsOpened && (

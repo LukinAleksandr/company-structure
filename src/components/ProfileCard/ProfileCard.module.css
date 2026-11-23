@@ -1,32 +1,31 @@
 .card {
-  --photo-left: 60px;
-  --photo-size: 277px;
-  --photo-to-text-gap: 43px;
-
   position: relative;
-  min-width: 822px;
-  height: 262px;
-  padding-top: 68px;
-  padding-left: calc(var(--photo-left) + var(--photo-size) + var(--photo-to-text-gap));
-  padding-right: 46px;
-  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  width: 748px;
+  height: 339px;
+  padding-right: 53px;
+  border-radius: 46px;
   background-color: #ffffff;
   font-family: var(--font-sf-pro);
 }
 
 .photo {
-  position: absolute;
-  left: var(--photo-left);
-  bottom: 22px;
+  margin-left: -49px;
+}
+
+.info {
+  align-self: flex-end;
+  padding-bottom: 62px;
 }
 
 .position {
-  margin: 0;
+  margin: 0 0 16px;
   color: #5f5f5fb5;
-  font-size: 25.43px;
+  font-size: 35px;
   font-weight: 500;
   line-height: 1;
-  margin-bottom: 4px;
 }
 
 .name {
@@ -38,7 +37,7 @@
 .firstName {
   display: block;
   white-space: nowrap;
-  font-size: 49.52px;
+  font-size: 56px;
   font-weight: 700;
   line-height: 0.85;
 }
@@ -53,11 +52,11 @@
 
 .badges {
   position: absolute;
-  top: 12px;
-  right: 13px;
+  top: 15px;
+  right: 17px;
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 4px;
 }
 
 .openButton {

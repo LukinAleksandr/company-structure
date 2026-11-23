@@ -10,17 +10,25 @@ import styles from "./StaffList.module.css";
 type StaffListProps = {
   staff: Employee[];
   layout?: StaffLayout;
+  isTopList?: boolean;
 };
 
-export function StaffList({ staff, layout = "row" }: StaffListProps) {
+export function StaffList({ staff, layout = "row", isTopList = true }: StaffListProps) {
   const isColumn = layout === "column";
   const sortedStaff = sortStaffByType(staff);
   const staffRows = isColumn ? [sortedStaff] : splitIntoChunks(sortedStaff, MAX_STAFF_PER_ROW);
 
   return (
     <div className={joinClassNames(styles.rows, isColumn && styles.stretched)}>
-      {staffRows.map((rowStaff) => (
-        <ul key={rowStaff[0].id} className={joinClassNames(styles.list, isColumn && styles.column)}>
+      {staffRows.map((rowStaff, rowIndex) => (
+        <ul
+          key={rowStaff[0].id}
+          className={joinClassNames(
+            styles.list,
+            isTopList && rowIndex === 0 && styles.firstRow,
+            isColumn && styles.column,
+          )}
+        >
           {rowStaff.map((employee) => (
             <li key={employee.id}>
               <ProfileCard employee={employee} />
